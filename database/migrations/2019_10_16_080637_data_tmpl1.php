@@ -13,7 +13,15 @@ class DataTmpl1 extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('datatmpl1', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('id_indikator');
+            $table->string('tahun');
+            $table->integer('nu_karakteristik');
+            $table->integer('nu_baris');
+            $table->integer('nu_periode');
+            $table->string('data');
+        });
     }
 
     /**
