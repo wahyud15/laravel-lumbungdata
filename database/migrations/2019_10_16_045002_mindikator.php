@@ -18,13 +18,12 @@ class Mindikator extends Migration
             $table->string('nama_indikator');
             $table->text('deskripsi_indikator');
             $table->text('keterangan_indikator');
-            $table->bigInteger('id_baris');
-            $table->bigInteger('id_karakteristik');
-            $table->bigInteger('id_periode');
-            $table->bigInteger('id_satuan');
-            $table->string('table_type');
+            $table->bigInteger('mbaris_id');
+            $table->bigInteger('mkarakteristik_id');
+            $table->bigInteger('mperiode_id');
         });
     }
+
 
     /**
      * Reverse the migrations.

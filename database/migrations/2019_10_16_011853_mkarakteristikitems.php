@@ -17,8 +17,7 @@ class Mkarakteristikitems extends Migration
             $table->bigIncrements('id');
             $table->integer('no_urut');
             $table->string('nama_items');
-            $table->bigInteger('id_karakteristik');
-            $table->string('nama_karakteristik');
+            $table->bigInteger('mkarakteristik_id');
         });
     }
 

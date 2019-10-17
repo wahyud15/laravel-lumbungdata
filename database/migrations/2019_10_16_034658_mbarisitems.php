@@ -17,8 +17,7 @@ class Mbarisitems extends Migration
             $table->bigIncrements('id');
             $table->integer('no_urut');
             $table->string('nama_items');
-            $table->bigInteger('id_baris');
-            $table->string('nama_baris');
+            $table->bigInteger('mbaris_id');
         });
     }
 

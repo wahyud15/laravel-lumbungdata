@@ -20,7 +20,7 @@ class DataTmpl1 extends Migration
             $table->integer('nu_karakteristik');
             $table->integer('nu_baris');
             $table->integer('nu_periode');
-            $table->string('data');
+            $table->string('data')->nullable();
         });
     }
 

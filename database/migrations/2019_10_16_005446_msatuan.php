@@ -16,6 +16,7 @@ class Msatuan extends Migration
         Schema::create('msatuan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_satuan');
+            $table->bigInteger('mkarakteristik_id');
         });
     }
 

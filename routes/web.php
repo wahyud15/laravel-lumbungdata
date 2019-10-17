@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/data', 'UploadData@showUploadData')
+        ->name('data.showformupload');
+
+Route::post('/data/upload', 'UploadData@uploadData')
+        ->name('data.uploaddata');

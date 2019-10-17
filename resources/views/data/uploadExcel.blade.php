@@ -66,7 +66,7 @@
         </style>
     </head>
     <body>
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="{{route('data.uploaddata')}}" method="post" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
                 <label for="fupload">File Upload </label>
@@ -75,5 +75,7 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <br/>
+
     </body>
 </html>
