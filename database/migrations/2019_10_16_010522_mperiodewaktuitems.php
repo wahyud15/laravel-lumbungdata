@@ -17,7 +17,7 @@ class Mperiodewaktuitems extends Migration
             $table->bigIncrements('id');
             $table->integer('no_urut');
             $table->string('nama_items');
-            $table->bigInteger('mperiodewaktu_id');
+            $table->bigInteger('mperiode_id');
         });
     }
 

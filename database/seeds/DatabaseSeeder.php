@@ -25,10 +25,10 @@ class DatabaseSeeder extends Seeder
 
         //Insert Turunan Periode Waktu
         DB::table('mperiodewaktuitems')->insert([
-            ['id' => 1, 'no_urut' => 1, 'nama_items' => 'Triwulan I', 'id_periode' => 1, 'nama_periode' => 'Triwulanan'],
-            ['id' => 2, 'no_urut' => 2, 'nama_items' => 'Triwulan II', 'id_periode' => 1, 'nama_periode' => 'Triwulanan'],
-            ['id' => 3, 'no_urut' => 3, 'nama_items' => 'Triwulan III', 'id_periode' => 1, 'nama_periode' => 'Triwulanan'],
-            ['id' => 4, 'no_urut' => 4, 'nama_items' => 'Triwulan IV', 'id_periode' => 1, 'nama_periode' => 'Triwulanan'],
+            ['id' => 1, 'no_urut' => 1, 'nama_items' => 'Triwulan I', 'mperiode_id' => 1,],
+            ['id' => 2, 'no_urut' => 2, 'nama_items' => 'Triwulan II', 'mperiode_id' => 1,],
+            ['id' => 3, 'no_urut' => 3, 'nama_items' => 'Triwulan III', 'mperiode_id' => 1,],
+            ['id' => 4, 'no_urut' => 4, 'nama_items' => 'Triwulan IV', 'mperiode_id' => 1,],
         ]);
 
         //Insert Karakteristik
@@ -38,8 +38,8 @@ class DatabaseSeeder extends Seeder
 
         //Insert Turunan Karakteristik
         DB::table('mkarakteristikitems')->insert([
-            ['id' => 1, 'no_urut' => '1', 'nama_items' => 'Sawah Irigasi', 'id_karakteristik' => 1, 'nama_karakteristik' => 'Jenis Sawah'],
-            ['id' => 2, 'no_urut' => '2', 'nama_items' => 'Sawah Ladang', 'id_karakteristik' => 1, 'nama_karakteristik' => 'Jenis Sawah'],
+            ['id' => 1, 'no_urut' => '1', 'nama_items' => 'Sawah Irigasi', 'mkarakteristik_id' => 1],
+            ['id' => 2, 'no_urut' => '2', 'nama_items' => 'Sawah Ladang', 'mkarakteristik_id' => 1],
         ]);
 
         //Insert Baris
@@ -49,14 +49,14 @@ class DatabaseSeeder extends Seeder
 
         //Insert Baris Items
         DB::table('mbarisitems')->insert([
-            ['id' => 1, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'id_baris' => 1, 'nama_baris' => 'Kabupaten/Kota'],
-            ['id' => 2, 'no_urut' => 2, 'nama_items' => 'LOMBOK TENGAH', 'id_baris' => 1, 'nama_baris' => 'Kabupaten/Kota'],
-            ['id' => 3, 'no_urut' => 3, 'nama_items' => 'LOMBOK TIMUR', 'id_baris' => 1, 'nama_baris' => 'Kabupaten/Kota'],
+            ['id' => 1, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
+            ['id' => 2, 'no_urut' => 2, 'nama_items' => 'LOMBOK TENGAH', 'mbaris_id' => 1,],
+            ['id' => 3, 'no_urut' => 3, 'nama_items' => 'LOMBOK TIMUR', 'mbaris_id' => 1,],
         ]);
 
         //Insert Indikator
         DB::table('mindikator')->insert([
-            ['id' => 1, 'nama_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah', 'deskripsi_indikator' => " ", 'keterangan_indikator' => " ", 'id_baris' => 1, 'id_karakteristik' => 1, 'id_periode' => 1, 'id_satuan' => 3],
+            ['id' => 1, 'nama_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah', 'deskripsi_indikator' => " ", 'keterangan_indikator' => " ", 'mbaris_id' => 1, 'mkarakteristik_id' => 1, 'mperiode_id' => 1, 'msatuan_id' => 3],
         ]);
 
         //Insert Data Template 1
@@ -73,7 +73,6 @@ class DatabaseSeeder extends Seeder
             ['id' => 10, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 4],
             ['id' => 11, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 2, 'nu_periode' => 4],
             ['id' => 12, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 3, 'nu_periode' => 4],
-
             ['id' => 13, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 1],
             ['id' => 14, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 2, 'nu_periode' => 1],
             ['id' => 15, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 3, 'nu_periode' => 1],
@@ -87,5 +86,6 @@ class DatabaseSeeder extends Seeder
             ['id' => 23, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 2, 'nu_periode' => 4],
             ['id' => 24, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 3, 'nu_periode' => 4],
         ]);
+
     }
 }

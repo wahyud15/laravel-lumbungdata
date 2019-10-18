@@ -21,6 +21,7 @@ class Mindikator extends Migration
             $table->bigInteger('mbaris_id');
             $table->bigInteger('mkarakteristik_id');
             $table->bigInteger('mperiode_id');
+            $table->bigInteger('msatuan_id');
         });
     }
 
