@@ -49,32 +49,38 @@ class DataTmpl1Import implements ToCollection
 
     public function collection(Collection $rows)
     {
-        $c_baris = 0;
-        $c_karakteristik = 0;
-        $c_periode = 0;
+        $c_baris = 1;
+        $idxCol = 1;
 
-        foreach ($rows as $row) 
+        for($baris=1; $baris < $this->max_baris+4; $baris++)
         {
-            //Continue Interation until baris index <= max baris value
-            if(++$c_baris <= $this->max_baris)
-            {
-                //Start Inserting into DB if baris index equal to 5
-                // if($c_baris >= 4)
-                // {
-                //     $isUpSuccess = DataTmpl1::where('id_indikator', $tid_indikator)
-                //                     ->where('tahun', $ttahundata)
-                //                     ->where('nu_karakteristik', ++$c_karakteristik)
-                //                     ->where('nu_baris', ++$c_baris)
-                //                     ->where('nu_periode', ++$c_periode)
-                //                     ->update(['data' => $data]);
-
-                // }
-
-                // echo $c_baris;
+            if($baris >= 4){
+                for($kar=1; $kar <= $this->max_karakteristik; $kar++)
+                {
+                    for($per=1; $per <= $this->max_periode; $per++)
+                    {
+                        $isUpSuccess = DataTmpl1::where('id_indikator', $this->tid_indikator)
+                                ->where('tahun', $this->ttahundata)
+                                ->where('nu_karakteristik', $kar)
+                                ->where('nu_baris', $c_baris)
+                                ->where('nu_periode', $per)
+                                ->update(['data' => $rows[$baris][$idxCol]]);
+                        // print_r("$baris "."$kar "."$per ".$rows[$baris][$idxCol]."<br/>");
+                        $idxCol++;
+                    }
                 }
+                
+            }
+
+            if($baris >= 4)
+            {
+                $c_baris++;
+            }
+
+            $idxCol = 1;
         }
 
-        echo $c_baris;
+
     }
 
 }
