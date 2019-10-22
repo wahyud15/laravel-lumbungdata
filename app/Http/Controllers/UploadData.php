@@ -12,7 +12,8 @@ class UploadData extends Controller
         return view('data.uploadExcel');
     }
 
-    public function uploadData(Request $request){
+    public function uploadData(Request $request)
+    {
         $id_indikator = 1;
         $tahundata = '2011';
 
