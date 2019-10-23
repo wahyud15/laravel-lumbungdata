@@ -1,4 +1,5 @@
 @inject('indikator', 'App\Mindikator')
+@inject('data', 'App\DataTmpl1')
 <table style="text-align:center">
     <thead >
     <tr>
@@ -37,7 +38,12 @@
                 {
                     for($p=0; $p < $max_periode; $p++)
                     {
-                        echo '<td>'.$indikator->where("id",1)->select("id")->first()->id.'</td>';
+                        echo '<td>'.$data->where("id_indikator",1)
+                                        ->where("nu_baris", $b+1)
+                                        ->where("nu_karakteristik", $k+1)
+                                        ->where("nu_periode", $p+1)
+                                        ->select("data")
+                                        ->first()->data.'</td>';
                     }
                 }
                 echo '</tr>';
