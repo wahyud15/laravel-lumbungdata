@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Mkarakteristikitems extends Migration
+class DataTmpl1 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class Mkarakteristikitems extends Migration
      */
     public function up()
     {
-        Schema::create('mkarakteristikitems', function (Blueprint $table) {
+        Schema::create('datatmpl1', function(Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('no_urut');
-            $table->string('nama_items');
-            $table->bigInteger('mkarakteristik_id');
+            $table->string('id_indikator');
+            $table->string('tahun');
+            $table->integer('nu_karakteristik');
+            $table->integer('nu_baris');
+            $table->integer('nu_periode');
+            $table->string('data')->nullable();
         });
     }
 

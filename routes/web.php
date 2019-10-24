@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/data/showupload', 'UploadData@showUploadData')
+        ->name('data.showformupload');
+
+Route::get('/data/showdownload', 'ExportData@showDownloadData')
+        ->name('data.showformdownload');
+
+Route::post('/data/upload', 'UploadData@uploadData')
+        ->name('data.uploaddata');
+
+Route::post('/data/download', 'ExportData@downloadData')
+        ->name('data.downloaddata');
