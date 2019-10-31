@@ -14,7 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/vertikal', function () {
+    return view('vertikal');
+});
+Route::get('/horizontal', function () {
+    return view('horizontal');
+});
+Route::get('/loginmenu', function () {
+    return view('login');
+});
 Route::get('/data/showupload', 'UploadData@showUploadData')
         ->name('data.showformupload');
 
