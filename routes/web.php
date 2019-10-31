@@ -34,3 +34,7 @@ Route::post('/data/upload', 'UploadData@uploadData')
 
 Route::post('/data/download', 'ExportData@downloadData')
         ->name('data.downloaddata');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
