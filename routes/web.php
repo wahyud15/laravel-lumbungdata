@@ -14,7 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/vertikal', function () {
+    return view('vertikal');
+});
+Route::get('/horizontal', function () {
+    return view('horizontal');
+});
+Route::get('/loginmenu', function () {
+    return view('login');
+});
 Route::get('/data/showupload', 'UploadData@showUploadData')
         ->name('data.showformupload');
 
@@ -26,3 +34,7 @@ Route::post('/data/upload', 'UploadData@uploadData')
 
 Route::post('/data/download', 'ExportData@downloadData')
         ->name('data.downloaddata');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
