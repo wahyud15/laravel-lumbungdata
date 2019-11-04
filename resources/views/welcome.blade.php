@@ -52,8 +52,9 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="buy-tickets"><a href="#login">Login</a></li>
+          <li class="buy-tickets"><a href="{{ route('loginpage') }}">Login</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -76,7 +77,7 @@
     <!--==========================
       About Section
     ============================-->
-    <section id="login" class="wow fadeInUp">
+    <section id="about" class="wow fadeInUp">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">

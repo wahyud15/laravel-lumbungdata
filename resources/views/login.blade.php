@@ -31,25 +31,25 @@
                         <div class="text-center m-t-0 m-b-15">
                                 <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark.png" alt="" height="24"></a>
                         </div>
-                        <h5 class="font-18 text-center">Sign in to continue to Stexo.</h5>
+                        <h5 class="font-18 text-center">Sign in to continue</h5>
 
-                        <form class="form-horizontal m-t-30" action="index.html">
-
+                        <form class="form-horizontal m-t-30" action="{{ route('login') }}" method="post">
+                            @csrf
                             <div class="form-group">
                                 <div class="col-12">
-                                        <label>Username</label>
-                                    <input class="form-control" type="text" required="" placeholder="Username">
+                                    <label>Email</label>
+                                    <input class="form-control" type="text" required="" placeholder="Email" name="email">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-12">
-                                        <label>Password</label>
-                                    <input class="form-control" type="password" required="" placeholder="Password">
+                                    <label>Password</label>
+                                    <input class="form-control" type="password" required="" placeholder="Password" name="password">
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="col-12">
                                     <div class="checkbox checkbox-primary">
                                             <div class="custom-control custom-checkbox">
@@ -58,7 +58,7 @@
                                                   </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group text-center m-t-20">
                                 <div class="col-12">
@@ -68,10 +68,10 @@
 
                             <div class="form-group row m-t-30 m-b-0">
                                 <div class="col-sm-7">
-                                    <a href="pages-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                                    <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
                                 </div>
                                 <div class="col-sm-5 text-right">
-                                    <a href="pages-register.html" class="text-muted">Create an account</a>
+                                    <a href="{{ route('register') }}" class="text-muted">Create an account</a>
                                 </div>
                             </div>
                         </form>

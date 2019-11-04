@@ -11,6 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //Insert User
+        DB::table('users')->insert([
+            ['name' => 'superadmin', 'email' => 'wahyudi.septiawan@bps.go.id', 'password' => bcrypt('1'), 'level' => '20'],
+            ['name' => 'adminbps', 'email' => 'wahyu.d.septiwaan@gmail.com', 'password' => bcrypt('1'), 'level' => '15'],
+        ]);
+
         //Insert Satuan
         DB::table('msatuan')->insert([
             ['id' => 1, 'nama_satuan' => 'Jiwa'],
