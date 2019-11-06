@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>SIMDESA - BPS PROVINSI NTB</title>
+    <title>DATA CARE - BPS PROVINSI NTB</title>
     <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
     <meta content="Themesdesign" name="author" />
     <link rel="shortcut icon" href="{{asset('horizon/images/favicon.ico')}}">
@@ -48,7 +48,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        © 2019 Stexo <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign</span>.
+        © 2019  <span class="d-none d-sm-inline-block"> - <a href="https://ntb.bps.go.id" target="_blank">Badan Pusat Statistik Provinsi Nusa Tenggara Barat</a></span>.
     </footer>
 
     <!-- End Footer -->
@@ -61,8 +61,7 @@
     @section('js')
 
     @show
-    <script src="{{asset('horizon/pages/dashboard.init.js')}}"></script>
-
+    
     <!-- App js -->
     <script src="{{asset('horizon/js/app.js')}}"></script>
 
