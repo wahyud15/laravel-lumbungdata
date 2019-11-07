@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
 
         //Insert Indikator
         DB::table('mindikator')->insert([
-            ['id' => 1, 'nama_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah', 'deskripsi_indikator' => " ", 'keterangan_indikator' => " ", 'mbaris_id' => 1, 'mkarakteristik_id' => 1, 'mperiode_id' => 1, 'msatuan_id' => 3, 'msubjek_id' => 1],
+            ['id' => 1, 'nama_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah', 'deskripsi_indikator' => " ", 'keterangan_indikator' => " ", 'mbaris_id' => 1, 'mkarakteristik_id' => 1, 'mperiode_id' => 1, 'msatuan_id' => 3, 'msubjek_id' => 2],
         ]);
 
         //Insert Data Template 1

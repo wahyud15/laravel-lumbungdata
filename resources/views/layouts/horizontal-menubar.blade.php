@@ -18,13 +18,13 @@
                             <ul class="submenu">
                                 <li><a href="{{ route('tabeldinamis.msubjek') }}">Subjek</a></li>
                                 <li><a href="{{ route('tabeldinamis.mindikator') }}">Indikator</a></li>
-                                <li><a href="#">Krakteristik</a></li>
-                                <li><a href="#">Judul Baris</a></li>
-                                <li><a href="#">Periode</a></li>
-                                <li><a href="#">Satuan</a></li>
+                                <li><a href="{{ route('tabeldinamis.mkarakteristik') }}">Krakteristik</a></li>
+                                <li><a href="{{ route('tabeldinamis.mbaris') }}">Judul Baris</a></li>
+                                <li><a href="{{ route('tabeldinamis.mperiode') }}">Periode</a></li>
+                                <li><a href="{{ route('tabeldinamis.msatuan') }}">Satuan</a></li>
                             </ul>
                         </li>
-                        <li><a href="ui-badge.html">Input Data Tabel</a></li>
+                        <li><a href="{{ route('tabeldinamis.inputtabeldinamis') }}">Input Data Tabel</a></li>
                     </ul>
                 </li>
 

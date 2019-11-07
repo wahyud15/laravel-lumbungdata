@@ -31,17 +31,42 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//===================================
+//=======================================
 //Tabel Dinamis - Kelola Master Tabel
-//===================================
+//=======================================
 Route::get('/tabeldinamis/msubjek', 'TabelDinamis@showMsubjek')
         ->name('tabeldinamis.msubjek');
 
 Route::get('/tabeldinamis/mindikator', 'TabelDinamis@showMindikator')
         ->name('tabeldinamis.mindikator');
 
+Route::get('/tabeldinamis/mkarakteristik', 'TabelDinamis@showMkarakteristik')
+        ->name('tabeldinamis.mkarakteristik');
+
+Route::get('/tabeldinamis/mbaris', 'TabelDinamis@showMbaris')
+        ->name('tabeldinamis.mbaris');
+
+Route::get('/tabeldinamis/mperiode', 'TabelDinamis@showMperiode')
+        ->name('tabeldinamis.mperiode');
+
+Route::get('/tabeldinamis/msatuan', 'TabelDinamis@showMsatuan')
+        ->name('tabeldinamis.msatuan');
+
 //=======================================
 //End Tabel Dinamis - Kelola Master Tabel
+//=======================================
+
+//=======================================
+//Tabel Dinamis - Input Tabel Dinamis
+//=======================================
+Route::get('/tabeldinamis/input', 'InputTabelDinamis@showInputTabelDinamis')
+        ->name('tabeldinamis.inputtabeldinamis');
+
+Route::post('/tabeldinamis/getListMindikator', 'InputTabelDinamis@getListMindikator')
+        ->name('tabeldinamis.getListMindikator');
+
+//=======================================
+//End Tabel Dinamis - Input Tabel Dinamis
 //=======================================
 
 Route::get('/data/showupload', 'UploadData@showUploadData')
