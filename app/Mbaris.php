@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mbaris extends Model
 {
     protected $table = 'mbaris';
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function Mbarisitems()
     {

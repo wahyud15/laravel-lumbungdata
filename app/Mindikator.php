@@ -11,21 +11,26 @@ class Mindikator extends Model
 
     public function Mbaris()
     {
-        return $this->hasOne('App\Mbaris', 'id');
+        return $this->hasOne('App\Mbaris', 'id', 'id');
     }
 
     public function Mkarakteristik()
     {
-        return $this->hasOne('App\Mkarakteristik', 'id');
+        return $this->hasOne('App\Mkarakteristik', 'id', 'id');
     }
 
     public function Mperiode()
     {
-        return $this->hasOne('App\Mperiodewaktu', 'id');
+        return $this->hasOne('App\Mperiode', 'id', 'id');
     }
 
     public function Msatuan()
     {
-        return $this->hasOne('App\Msatuan', 'id');
+        return $this->hasOne('App\Msatuan', 'id', 'id');
+    }
+
+    public function Msubjek()
+    {
+        return $this->hasOne('App\Msubjek', 'id', 'id');
     }
 }

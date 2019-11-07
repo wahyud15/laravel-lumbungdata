@@ -6,6 +6,9 @@
 <!--Morris Chart-->
 <script src="{{asset('plugins/morris/morris.min.js')}}"></script>
 <script src="{{asset('plugins/raphael/raphael.min.js')}}"></script>
+
+<!-- Dashboard -->
+<script src="{{asset('horizon/pages/dashboard.init.js')}}"></script>
 @stop
 
 @extends('layouts.horizontal')
@@ -16,12 +19,12 @@
         <div class="col-sm-6">
             <h4 class="page-title">Dashboard</h4>
         </div>
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
             <ol class="breadcrumb float-right">
                 <li class="breadcrumb-item"><a href="javascript:void(0);">Stexo</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
-        </div>
+        </div> -->
     </div>
     <!-- end row -->
 </div>
@@ -35,7 +38,7 @@
                     <i class="mdi mdi-cube-outline bg-primary  text-white"></i>
                 </div>
                 <div>
-                    <h5 class="font-16">Active Sessions</h5>
+                    <h5 class="font-16">Jumlah Subjek</h5>
                 </div>
                 <h3 class="mt-4">43,225</h3>
                 <div class="progress mt-4" style="height: 4px;">
@@ -53,7 +56,7 @@
                     <i class="mdi mdi-briefcase-check bg-success text-white"></i>
                 </div>
                 <div>
-                    <h5 class="font-16">Total Revenue</h5>
+                    <h5 class="font-16">Jumlah Indikator</h5>
                 </div>
                 <h3 class="mt-4">$73,265</h3>
                 <div class="progress mt-4" style="height: 4px;">
@@ -71,7 +74,7 @@
                     <i class="mdi mdi-tag-text-outline bg-warning text-white"></i>
                 </div>
                 <div>
-                    <h5 class="font-16">Average Price</h5>
+                    <h5 class="font-16">Indikator Favorit</h5>
                 </div>
                 <h3 class="mt-4">447</h3>
                 <div class="progress mt-4" style="height: 4px;">
@@ -89,7 +92,7 @@
                     <i class="mdi mdi-buffer bg-danger text-white"></i>
                 </div>
                 <div>
-                    <h5 class="font-16">Add to Card</h5>
+                    <h5 class="font-16">Pengunggah Care</h5>
                 </div>
                 <h3 class="mt-4">86%</h3>
                 <div class="progress mt-4" style="height: 4px;">
@@ -265,7 +268,7 @@
 </div>
 
 <!-- START ROW -->
-<div class="row">
+<!-- <div class="row">
     <div class="col-xl-12">
         <div class="card m-b-30">
             <div class="card-body">
@@ -382,5 +385,5 @@
         </div>
     </div>
 
-</div>
+</div> -->
 @endsection

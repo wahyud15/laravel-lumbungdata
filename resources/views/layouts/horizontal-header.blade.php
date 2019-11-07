@@ -5,14 +5,14 @@
         <div>
             <a href="index.html" class="logo">
                 <span class="logo-light">
-                        <i class="mdi mdi-camera-control"></i> Stexo
+                        <i class="mdi mdi-camera-control"></i> DATA CARE
                 </span>
             </a>
         </div>
         <!-- End Logo-->
 
         <div class="menu-extras topbar-custom navbar p-0">
-            <ul class="list-inline d-none d-lg-block mb-0">
+            <!-- <ul class="list-inline d-none d-lg-block mb-0">
                 <li class="hide-phone app-search float-left">
                     <form role="search" class="app-search">
                         <div class="form-group mb-0">
@@ -21,11 +21,11 @@
                         </div>
                     </form>
                 </li>
-            </ul>
+            </ul> -->
 
             <ul class="navbar-right ml-auto list-inline float-right mb-0">
                 <!-- language-->
-                <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
+                <!-- <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img src="assets/images/flags/us_flag.jpg" class="mr-2" height="12" alt="" /> English <span class="mdi mdi-chevron-down"></span>
                     </a>
@@ -36,7 +36,7 @@
                         <a class="dropdown-item" href="#"><img src="assets/images/flags/germany_flag.jpg" alt="" height="16" /><span> German </span></a>
                         <a class="dropdown-item" href="#"><img src="assets/images/flags/italy_flag.jpg" alt="" height="16" /><span> Italian </span></a>
                     </div>
-                </li>
+                </li> -->
 
                 <!-- full screen -->
                 <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">

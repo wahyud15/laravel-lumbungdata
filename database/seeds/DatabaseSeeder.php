@@ -11,6 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //Insert User
+        DB::table('users')->insert([
+            ['name' => 'superadmin', 'email' => 'wahyudi.septiawan@bps.go.id', 'password' => bcrypt('1'), 'level' => '20'],
+            ['name' => 'adminbps', 'email' => 'wahyu.d.septiwaan@gmail.com', 'password' => bcrypt('1'), 'level' => '15'],
+        ]);
+
+        //
+        DB::table('msubjek')->insert([
+            ['id' => 1, 'nama_subjek' => 'Sosial Kependudukan'],
+            ['id' => 2, 'nama_subjek' => 'Pertanian Kehutanan'],
+            ['id' => 3, 'nama_subjek' => 'Ekonomi Perdagangan'],
+        ]);
+
         //Insert Satuan
         DB::table('msatuan')->insert([
             ['id' => 1, 'nama_satuan' => 'Jiwa'],
@@ -56,7 +69,7 @@ class DatabaseSeeder extends Seeder
 
         //Insert Indikator
         DB::table('mindikator')->insert([
-            ['id' => 1, 'nama_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah', 'deskripsi_indikator' => " ", 'keterangan_indikator' => " ", 'mbaris_id' => 1, 'mkarakteristik_id' => 1, 'mperiode_id' => 1, 'msatuan_id' => 3],
+            ['id' => 1, 'nama_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah', 'deskripsi_indikator' => " ", 'keterangan_indikator' => " ", 'mbaris_id' => 1, 'mkarakteristik_id' => 1, 'mperiode_id' => 1, 'msatuan_id' => 3, 'msubjek_id' => 1],
         ]);
 
         //Insert Data Template 1

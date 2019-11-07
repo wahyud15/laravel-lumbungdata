@@ -11,12 +11,30 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"><i class="icon-pencil-ruler"></i> UI Elements <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                    <a href="#"><i class="icon-pencil-ruler"></i> Tabel Dinamis <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                    <ul class="submenu">
+                        <li class="has-submenu">
+                            <a href="#">Kelola Master Tabel</a>
+                            <ul class="submenu">
+                                <li><a href="{{ route('tabeldinamis.msubjek') }}">Subjek</a></li>
+                                <li><a href="{{ route('tabeldinamis.mindikator') }}">Indikator</a></li>
+                                <li><a href="#">Krakteristik</a></li>
+                                <li><a href="#">Judul Baris</a></li>
+                                <li><a href="#">Periode</a></li>
+                                <li><a href="#">Satuan</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="ui-badge.html">Input Data Tabel</a></li>
+                    </ul>
+                </li>
+
+                <!-- <li class="has-submenu">
+                    <a href="#"><i class="icon-pencil-ruler"></i> Tabel Dinamis <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                     <ul class="submenu megamenu">
                         <li>
                             <ul>
-                                <li><a href="ui-alerts.html">Alerts</a></li>
-                                <li><a href="ui-badge.html">Badge</a></li>
+                                <li><a href="ui-alerts.html">Kelola Master Tabel</a></li>
+                                <li><a href="ui-badge.html">Input Data Tabel</a></li>
                                 <li><a href="ui-buttons.html">Buttons</a></li>
                                 <li><a href="ui-cards.html">Cards</a></li>
                                 <li><a href="ui-dropdowns.html">Dropdowns</a></li>
@@ -44,9 +62,9 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
-                <li class="has-submenu">
+                <!-- <li class="has-submenu">
                     <a href="#"><i class="icon-life-buoy"></i> Components <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                     <ul class="submenu">
                         <li class="has-submenu">
@@ -116,9 +134,9 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
 
-                <li class="has-submenu">
+                <!-- <li class="has-submenu">
                     <a href="#"><i class="icon-diamond"></i> Advanced UI <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                     <ul class="submenu megamenu">
                         <li>
@@ -136,9 +154,9 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
-                <li class="has-submenu">
+                <!-- <li class="has-submenu">
                     <a href="#"><i class="icon-paper-sheet"></i> Pages <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                     <ul class="submenu megamenu">
 
@@ -164,7 +182,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
             </ul>
             <!-- End navigation menu -->
