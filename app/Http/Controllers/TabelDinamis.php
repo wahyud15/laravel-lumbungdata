@@ -20,8 +20,22 @@ class TabelDinamis extends Controller
 
     public function showMindikator()
     {
+        $msubjek = Msubjek::all();
         $mindikator = Mindikator::all();
-        return view('tabeldinamis.mindikator', ['mindikator' => $mindikator]);
+        $mkarakteristik = Mkarakteristik::all();
+        $mbaris = Mbaris::all();
+        $mperiode = Mperiode::all();
+        $msatuan = Msatuan::all();
+
+        return view('tabeldinamis.mindikator', 
+                    [
+                        'msubjek' => $msubjek,
+                        'mindikator' => $mindikator,
+                        'mkarakteristik' => $mkarakteristik,
+                        'mbaris' => $mbaris,
+                        'mperiode' => $mperiode,
+                        'msatuan' => $msatuan,
+                    ]);
     }
 
     public function showMkarakteristik()
@@ -46,5 +60,43 @@ class TabelDinamis extends Controller
     {
         $msatuan = Msatuan::all();
         return view('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
+    }
+
+    public function addIndikator(Request $request)
+    {
+        $nama_indikator = $request->tambahIndikatorNamaIndikator;
+        $msubjek_id = $request->tambahIndikatorSubjek;
+        $mkarakteristik_id = $request->tambahIndikatorKarakteristik;
+        $mbaris_id = $request->tambahIndikatorBaris;
+        $mperiode_id = $request->tambahIndikatorPeriode;
+        $msatuan_id = $request->tambahIndikatorSatuan;
+
+        $isInsertSuccess = Mindikator::firstOrCreate(
+            ['nama_indikator' => $nama_indikator],
+            ['msubjek_id' => $msubjek_id , 
+            'mkarakteristik_id' => $mkarakteristik_id, 
+            'mbaris_id' => $mbaris_id, 
+            'mperiode_id' => $mperiode_id, 
+            'msatuan_id' => $msatuan_id
+            ]
+        );
+
+
+        $msubjek = Msubjek::all();
+        $mindikator = Mindikator::all();
+        $mkarakteristik = Mkarakteristik::all();
+        $mbaris = Mbaris::all();
+        $mperiode = Mperiode::all();
+        $msatuan = Msatuan::all();
+
+        return view('tabeldinamis.mindikator', 
+                    [
+                        'msubjek' => $msubjek,
+                        'mindikator' => $mindikator,
+                        'mkarakteristik' => $mkarakteristik,
+                        'mbaris' => $mbaris,
+                        'mperiode' => $mperiode,
+                        'msatuan' => $msatuan,
+                    ]);
     }
 }

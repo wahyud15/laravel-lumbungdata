@@ -32,7 +32,7 @@
 <div class="page-title-box">
     <div class="row align-items-center">
         <div class="col-sm-6">
-            <h4 class="page-title">Tabel Dinamis - Upload Data Tabel</h4>
+            <h4 class="page-title">Tabel Dinamis - View Uploaded Data</h4>
         </div>
     </div>
     <!-- end row -->
@@ -43,59 +43,59 @@
         <div class="card m-b-30">
             <div class="card-body">
 
-                <h4 class="mt-0 header-title">Upload Data</h4><br/>
+                <h4 class="mt-0 header-title">View Uploaded Data</h4><br/>
                 <div class="table-responsive">
-                <table style="text-align:center" class="table table-bordered">
-                    <thead >
-                    <tr>
-                        <th rowspan="4" style="text-align:center">Kabupaten/Kota</th>
-                        <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">2011</th>
-                    </tr>
-                    <tr>
-                        <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">Luas Lahan Tanam Menurut Jenis Sawah</th>
-                    </tr>
-                    <tr>
-                        @foreach($karakteristikitems as $kitems)
-                            <th colspan="{{$max_periode}}" style="text-align:center">{{$kitems->nama_items}}</th>
-                        @endforeach
-                    </tr>
-                    <tr>
-                        @php
-                            for($x=0; $x < $max_karakteristik; $x++)
-                            {
-                                for($y=0; $y < $max_periode; $y++)
-                                {
-                                    echo "<th style='text-align:center'>".$periodeitems[$y]->nama_items."</th>";
-                                }
-                            }
-                        @endphp
-                        
-                    </tr>
-                    </thead>
-                    <tbody>
+                    <table style="text-align:center" class="table table-bordered">
+                        <thead >
+                        <tr>
+                            <th rowspan="4" style="text-align:center">Kabupaten/Kota</th>
+                            <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">2011</th>
+                        </tr>
+                        <tr>
+                            <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">Luas Lahan Tanam Menurut Jenis Sawah</th>
+                        </tr>
+                        <tr>
+                            @foreach($karakteristikitems as $kitems)
+                                <th colspan="{{$max_periode}}" style="text-align:center">{{$kitems->nama_items}}</th>
+                            @endforeach
+                        </tr>
+                        <tr>
                             @php
-                            for($b=0; $b < $max_baris; $b++)
-                            {
-                                echo '<tr>';
-                                echo '<td>'.$barisitems[$b]->nama_items.'</td>';
-
-                                for($k=0; $k < $max_karakteristik; $k++)
+                                for($x=0; $x < $max_karakteristik; $x++)
                                 {
-                                    for($p=0; $p < $max_periode; $p++)
+                                    for($y=0; $y < $max_periode; $y++)
                                     {
-                                        echo '<td>'.$data->where("id_indikator",1)
-                                                        ->where("nu_baris", $b+1)
-                                                        ->where("nu_karakteristik", $k+1)
-                                                        ->where("nu_periode", $p+1)
-                                                        ->select("data")
-                                                        ->first()->data.'</td>';
+                                        echo "<th style='text-align:center'>".$periodeitems[$y]->nama_items."</th>";
                                     }
                                 }
-                                echo '</tr>';
-                            }
                             @endphp
-                    </tbody>
-                </table>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                                @php
+                                for($b=0; $b < $max_baris; $b++)
+                                {
+                                    echo '<tr>';
+                                    echo '<td>'.$barisitems[$b]->nama_items.'</td>';
+
+                                    for($k=0; $k < $max_karakteristik; $k++)
+                                    {
+                                        for($p=0; $p < $max_periode; $p++)
+                                        {
+                                            echo '<td>'.$data->where("id_indikator",1)
+                                                            ->where("nu_baris", $b+1)
+                                                            ->where("nu_karakteristik", $k+1)
+                                                            ->where("nu_periode", $p+1)
+                                                            ->select("data")
+                                                            ->first()->data.'</td>';
+                                        }
+                                    }
+                                    echo '</tr>';
+                                }
+                                @endphp
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

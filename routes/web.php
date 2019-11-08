@@ -52,6 +52,9 @@ Route::get('/tabeldinamis/mperiode', 'TabelDinamis@showMperiode')
 Route::get('/tabeldinamis/msatuan', 'TabelDinamis@showMsatuan')
         ->name('tabeldinamis.msatuan');
 
+Route::post('/tabeldinamis/addIndikator', 'TabelDinamis@addIndikator')
+        ->name('tabeldinamis.addIndikator');
+
 //=======================================
 //End Tabel Dinamis - Kelola Master Tabel
 //=======================================
