@@ -62,8 +62,11 @@ Route::get('/tabeldinamis/msatuan', 'TabelDinamis@showMsatuan')
 Route::get('/tabeldinamis/input', 'InputTabelDinamis@showInputTabelDinamis')
         ->name('tabeldinamis.inputtabeldinamis');
 
-Route::post('/tabeldinamis/getListMindikator', 'InputTabelDinamis@getListMindikator')
-        ->name('tabeldinamis.getListMindikator');
+Route::get('/tabeldinamis/getDataIndikator/{id}', 'InputTabelDinamis@getDataIndikator')
+        ->name('tabeldinamis.getDataIndikator');
+
+Route::post('/tabeldinamis/uploadDataIndikator', 'InputTabelDinamis@uploadDataIndikator')
+        ->name('tabeldinamis.uploadDataIndikator');
 
 //=======================================
 //End Tabel Dinamis - Input Tabel Dinamis

@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <button id="btnitdsubjek" type="submit" class="btn btn-primary waves-effect waves-light">
-                            Tampilkan
+                            Tampilkan Indikator
                         </button>
                     </div>
                 </form>
@@ -62,14 +62,14 @@
     </div> <!-- end col -->
 </div> <!-- end row -->
 
-<div class="row">
+<div class="row" id="panelitdformindikator" style="display:none">
     <div class="col-12">
         <div class="card m-b-30">
             <div class="card-body">
 
                 <h4 class="mt-0 header-title">Pilih Indikator</h4><br/>
 
-                <form id="itdformindikator" action="#" method="POST" class="form-group" style="display:none">
+                <form id="itdformindikator" action="#" method="POST" class="form-group">
                     @csrf
                     <!-- Subjek -->
                     <div class="form-group">
@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <button id="btnitdindikator" type="submit" class="btn btn-primary waves-effect waves-light">
-                            Tampilkan
+                            Upload Data Tabel
                         </button>
                     </div>
                 </form>
@@ -89,24 +89,31 @@
     </div> <!-- end col -->
 </div> <!-- end row -->
 
-<div class="row">
+<div class="row" id="panelitdformupload" style="display:none">
     <div class="col-12">
         <div class="card m-b-30">
             <div class="card-body">
 
-                <h4 class="mt-0 header-title">Pilih Karakteristik</h4><br/>
+                <h4 class="mt-0 header-title">Upload Data Tabel</h4><br/>
 
-                <form id="itdformkarakteristik" action="#" method="POST" class="form-group" style="display:none">
+                <form id="itdformupload" action="#" method="POST">
                     @csrf
                     <!-- Subjek -->
                     <div class="form-group">
-                        <label for="itdkarakteristik">Karakteristik</label>
-                        <select id="itdkarakteristik" class="form-control" name="">
+                        <label for="itdformuploadtahun">Tahun</label>
+                        <select id="itdformuploadtahun">
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
                         </select>
                     </div>
+                    <input type="file" name="itdformuploadfile" id="itdformuploadfile"/>
                     <div class="form-group">
-                        <button id="btnitdkarakteristik" type="submit" class="btn btn-primary waves-effect waves-light">
-                            Tampilkan
+                        <button id="btnitdkonfigurasi" type="submit" class="btn btn-primary waves-effect waves-light">
+                            Submit
                         </button>
                     </div>
                 </form>
@@ -115,5 +122,7 @@
         </div>
     </div> <!-- end col -->
 </div> <!-- end row -->
+
+
 
 @endsection
