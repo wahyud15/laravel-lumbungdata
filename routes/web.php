@@ -55,6 +55,21 @@ Route::get('/tabeldinamis/msatuan', 'TabelDinamis@showMsatuan')
 Route::post('/tabeldinamis/addIndikator', 'TabelDinamis@addIndikator')
         ->name('tabeldinamis.addIndikator');
 
+Route::post('/tabeldinamis/addSubjek', 'TabelDinamis@addSubjek')
+        ->name('tabeldinamis.addSubjek');
+
+Route::post('/tabeldinamis/addKarakteristik', 'TabelDinamis@addKarakteristik')
+        ->name('tabeldinamis.addKarakteristik');
+
+Route::post('/tabeldinamis/addBaris', 'TabelDinamis@addBaris')
+        ->name('tabeldinamis.addBaris');
+
+Route::post('/tabeldinamis/addPeriode', 'TabelDinamis@addPeriode')
+        ->name('tabeldinamis.addPeriode');
+
+Route::post('/tabeldinamis/addSatuan', 'TabelDinamis@addSatuan')
+        ->name('tabeldinamis.addSatuan');
+
 //=======================================
 //End Tabel Dinamis - Kelola Master Tabel
 //=======================================

@@ -55,7 +55,7 @@
                             <td>{{ $subjek->id }}</td>
                             <td>{{ $subjek->nama_subjek }}</td>
                             <td> 
-                                <button class="btn btn-success">Tambah</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#tambahSubjekModal">Tambah</button>
                                 <button class="btn btn-primary">Edit</button>
                                 <button class="btn btn-danger">Hapus</button>
                             </td>
@@ -69,5 +69,41 @@
         </div>
     </div> <!-- end col -->
 </div> <!-- end row -->
+
+<!-- The Modal -->
+<div class="modal fade" id="tambahSubjekModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Subjek</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form id="tambahSubjekForm" action="{{route('tabeldinamis.addSubjek')}}" method="post" enctype="multipart/form-data">
+        @csrf
+            <div class="form-group">
+                <label for="tambahSubjekNamaSubjek">Subjek</label>
+                <input type="text" class="form-control" id="tambahSubjekNamaSubjek" name="tambahSubjekNamaSubjek" />
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div> -->
+
+    </div>
+  </div>
+</div>
 
 @endsection

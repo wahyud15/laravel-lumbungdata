@@ -55,7 +55,7 @@
                             <td>{{ $periode->id }}</td>
                             <td>{{ $periode->nama_periode }}</td>
                             <td> 
-                                <button class="btn btn-success">Tambah</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#tambahPeriodeModal">Tambah</button>
                                 <button class="btn btn-primary">Edit</button>
                                 <button class="btn btn-danger">Hapus</button>
                             </td>
@@ -70,4 +70,94 @@
     </div> <!-- end col -->
 </div> <!-- end row -->
 
+<!-- The Modal -->
+<div class="modal fade" id="tambahPeriodeModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Periode</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form id="tambahPeriodeForm" action="{{route('tabeldinamis.addPeriode')}}" method="post" enctype="multipart/form-data">
+        @csrf
+            <div class="form-group">
+                <label for="tambahPeriodeNamaPeriode">Periode</label>
+                <input type="text" class="form-control" id="tambahPeriodeNamaPeriode" name="tambahPeriodeNamaPeriode" />
+            </div>
+
+            <div class="form-group">
+
+            </div>
+
+            <div class="form-group">
+                <label for="tambahItemsPeriode">Items Periode</label>
+                <div class="form-group">
+                    <!-- apabila link "Add" diklik maka akan menjalankan function tambah_form -->
+                    <a href='#' onclick="tambah_form(); return false;" class="btn btn-success">Add Items</a>
+                    <!-- apabila link "Remove" diklik maka akan menjalankan function kurangi_form -->
+                    <a href='#' onclick="kurangi_form(); return false;" class="btn btn-danger">Remove Items</a>
+                </div>
+                <table id="tambahItemsPeriode">
+                    <tr>
+                        <td>
+                            <input type="text" name="itemsperiode[]"  class="form-control">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div> -->
+
+    </div>
+  </div>
+</div>
+
+<script>
+function tambah_form(){
+        //mencari element dengan id "formku" (yaitu table)
+    var target=document.getElementById("tambahItemsPeriode");
+        // membuat element <tr>
+    var tabel_row=document.createElement("tr");
+        // membuat element <td>
+    var tabel_col=document.createElement("td");
+        // membuat element input untuk menambah form inputan
+    var tambah=document.createElement("input");
+        // menambahkan element <tr> pada tag table
+    target.appendChild(tabel_row);
+        // menambahkan element <td> pada tag <tr>
+    tabel_row.appendChild(tabel_col);
+        // menambahkan element input pada tag <td>
+    tabel_col.appendChild(tambah);
+        // kemudian memberikan attribute type="text" untuk form inputan
+    tambah.setAttribute('type','text');
+        // kemudian memberikan attribute type="class" untuk form inputan
+    tambah.setAttribute('class','form-control');
+        // lalu memberikan attribute name="inputan[]" untuk form inputan
+    tambah.setAttribute('name','itemsperiode[]');
+}
+
+function kurangi_form(){
+        // mencari element dengan id="formku" yaitu table
+    var target=document.getElementById("tambahItemsPeriode");
+        // mendapatkan element terakhir dari <table> yaitu <tr> terakhir
+    var akhir=target.lastChild;
+        // menghapus <tr> terakhir beserta element2 didalamnya
+    target.removeChild(akhir);
+}
+</script>
 @endsection
