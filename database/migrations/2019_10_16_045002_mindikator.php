@@ -23,6 +23,7 @@ class Mindikator extends Migration
             $table->bigInteger('mperiode_id');
             $table->bigInteger('msatuan_id');
             $table->bigInteger('msubjek_id');
+            $table->timestamps();
         });
     }
 
