@@ -12,19 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+        return view('horizontal');
 });
 
 Route::get('/vertikal', function () {
-    return view('vertikal');
+        return view('vertikal');
 });
 
 Route::get('/horizontal', function () {
-    return view('horizontal');
+        return view('horizontal');
 });
 
 Route::get('/loginmenu', function () {
-    return view('login');
+        return view('login');
 })->name('loginpage');
 
 Auth::routes();
@@ -55,3 +55,15 @@ Route::post('/data/upload', 'UploadData@uploadData')
 
 Route::post('/data/download', 'ExportData@downloadData')
         ->name('data.downloaddata');
+//-------------------------
+// metadata
+//-------------------------
+Route::get('/metadata/list', 'MetadataController@ListData')->name('metadata.list');
+Route::get('/metadata/tambah', 'MetadataController@Tambah')->name('metadata.tambah');
+Route::post('/metadata/simpan', 'MetadataController@Simpan')->name('metadata.simpan');
+Route::get('/metadata/edit/{id}', 'MetadataController@EditData')->name('metadata.edit');
+Route::post('/metadata/updatedata', 'MetadataController@UpdateData')->name('metadata.update');
+Route::post('/metadata/hapus', 'MetadataController@HapusData')->name('metadata.hapus');
+//---------------
+// end metadata
+//---------------

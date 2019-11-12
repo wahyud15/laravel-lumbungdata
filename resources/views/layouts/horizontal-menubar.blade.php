@@ -7,7 +7,7 @@
             <ul class="navigation-menu">
 
                 <li class="has-submenu">
-                    <a href="index.html"><i class="icon-accelerator"></i> Dashboard</a>
+                    <a href="{{url('')}}"><i class="icon-accelerator"></i> Dashboard</a>
                 </li>
 
                 <li class="has-submenu">
@@ -27,7 +27,19 @@
                         <li><a href="ui-badge.html">Input Data Tabel</a></li>
                     </ul>
                 </li>
-
+                <!---metadata-->
+                <li class="has-submenu">
+                    <a href="#"><i class="icon-diamond"></i> Metadata <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                    <ul class="submenu megamenu">
+                        <li>
+                            <ul>
+                                <li><a href="{{route('metadata.tambah')}}">Tambah</a></li>
+                                <li><a href="{{route('metadata.list')}}">List</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </li>
                 <!-- <li class="has-submenu">
                     <a href="#"><i class="icon-pencil-ruler"></i> Tabel Dinamis <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                     <ul class="submenu megamenu">

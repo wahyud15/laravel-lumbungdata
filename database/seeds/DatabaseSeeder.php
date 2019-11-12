@@ -99,6 +99,5 @@ class DatabaseSeeder extends Seeder
             ['id' => 23, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 2, 'nu_periode' => 4],
             ['id' => 24, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 3, 'nu_periode' => 4],
         ]);
-
     }
 }
