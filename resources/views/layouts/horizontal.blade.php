@@ -16,6 +16,11 @@
     <link href="{{asset('horizon/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('horizon/css/icons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('horizon/css/style.css')}}" rel="stylesheet" type="text/css">
+
+    <!-- Sweet Alert -->
+    <!-- <link href="{{asset('plugins/sweet-alert2/sweetalert2.css')}}" rel="stylesheet" type="text/css"> -->
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>

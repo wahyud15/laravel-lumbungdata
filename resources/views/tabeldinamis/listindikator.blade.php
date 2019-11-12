@@ -14,10 +14,13 @@
 
 <!-- Responsive examples -->
 <script src="{{ asset('plugins/datatables/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/responsive.bootstrap4.min.js') }}"></script> 
 
 <!-- Datatable init js -->
 <script src="{{ asset('assets/pages/datatables.init.js') }}"></script>  
+
+<!-- Input Tabel Dinamis -->
+<!-- <script src="{{ asset('js/tabeldinamis/inputtabeldinamis.js') }}"></script>   -->
 @stop
 
 @extends('layouts.horizontal')
@@ -26,7 +29,7 @@
 <div class="page-title-box">
     <div class="row align-items-center">
         <div class="col-sm-6">
-            <h4 class="page-title">Tabel Dinamis - Kelola Master Tabel</h4>
+            <h4 class="page-title">Tabel Dinamis - Input Data Tabel</h4>
         </div>
     </div>
     <!-- end row -->
@@ -37,12 +40,13 @@
         <div class="card m-b-30">
             <div class="card-body">
 
-                <h4 class="mt-0 header-title">Kelola Master Subjek</h4><br/>
+                <h4 class="mt-0 header-title">Pilih Indikator</h4><br/>
 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Indikator</th>
                         <th>Subjek</th>
                         <th>Aksi</th>
                     </tr>
@@ -50,14 +54,13 @@
 
 
                     <tbody>
-                    @foreach($msubjek as $subjek)
+                    @foreach($mindikator as $indikator)
                         <tr>
-                            <td>{{ $subjek->id }}</td>
-                            <td>{{ $subjek->nama_subjek }}</td>
+                            <td>{{ $indikator->id }}</td>
+                            <td>{{ $indikator->nama_indikator }}</td>
+                            <td>{{ $indikator->Msubjek->nama_subjek }}</td>
                             <td> 
-                                <button class="btn btn-success" data-toggle="modal" data-target="#tambahSubjekModal">Tambah</button>
-                                <button class="btn btn-primary">Edit</button>
-                                <button class="btn btn-danger">Hapus</button>
+                                <a href="{{route('tabeldinamis.getDataIndikator', $indikator->id)}}" class="btn btn-primary" target="_blank">Tambah Data</a>
                             </td>
                         </tr>
                     @endforeach
@@ -69,41 +72,5 @@
         </div>
     </div> <!-- end col -->
 </div> <!-- end row -->
-
-<!-- The Modal -->
-<div class="modal fade" id="tambahSubjekModal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Tambah Subjek</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form id="tambahSubjekForm" action="{{route('tabeldinamis.addSubjek')}}" method="post" enctype="multipart/form-data">
-        @csrf
-            <div class="form-group">
-                <label for="tambahSubjekNamaSubjek">Subjek</label>
-                <input type="text" class="form-control" id="tambahSubjekNamaSubjek" name="tambahSubjekNamaSubjek" />
-            </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-
-        </form>
-      </div>
-
-      <!-- Modal footer -->
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div> -->
-
-    </div>
-  </div>
-</div>
 
 @endsection
