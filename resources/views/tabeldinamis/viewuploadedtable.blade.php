@@ -23,7 +23,6 @@
 <!-- <script src="{{ asset('js/tabeldinamis/inputtabeldinamis.js') }}"></script>   -->
 @stop
 
-@inject('indikator', 'App\Mindikator')
 @inject('data', 'App\DataTmpl1')
 
 @extends('layouts.horizontal')
@@ -48,11 +47,11 @@
                     <table style="text-align:center" class="table table-bordered">
                         <thead >
                         <tr>
-                            <th rowspan="4" style="text-align:center">Kabupaten/Kota</th>
-                            <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">2011</th>
+                            <th rowspan="4" style="text-align:center">{{$judul_baris}}</th>
+                            <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">{{$tahun}}</th>
                         </tr>
                         <tr>
-                            <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">Luas Lahan Tanam Menurut Jenis Sawah</th>
+                            <th colspan="{{$max_karakteristik*$max_periode}}" style="text-align:center">{{$nama_indikator}}</th>
                         </tr>
                         <tr>
                             @foreach($karakteristikitems as $kitems)
@@ -83,7 +82,8 @@
                                     {
                                         for($p=0; $p < $max_periode; $p++)
                                         {
-                                            echo '<td>'.$data->where("id_indikator",1)
+                                            echo '<td>'.$data->where("id_indikator", $id_indikator)
+                                                            ->where("tahun", $tahun)
                                                             ->where("nu_baris", $b+1)
                                                             ->where("nu_karakteristik", $k+1)
                                                             ->where("nu_periode", $p+1)

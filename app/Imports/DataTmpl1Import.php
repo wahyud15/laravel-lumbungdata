@@ -59,13 +59,20 @@ class DataTmpl1Import implements ToCollection
                 {
                     for($per=1; $per <= $this->max_periode; $per++)
                     {
-                        $isUpSuccess = DataTmpl1::where('id_indikator', $this->tid_indikator)
-                                ->where('tahun', $this->ttahundata)
-                                ->where('nu_karakteristik', $kar)
-                                ->where('nu_baris', $c_baris)
-                                ->where('nu_periode', $per)
-                                ->update(['data' => $rows[$baris][$idxCol]]);
-                        // print_r("$baris "."$kar "."$per ".$rows[$baris][$idxCol]."<br/>");
+                        // $isUpSuccess = DataTmpl1::where('id_indikator', $this->tid_indikator)
+                        //         ->where('tahun', $this->ttahundata)
+                        //         ->where('nu_karakteristik', $kar)
+                        //         ->where('nu_baris', $c_baris)
+                        //         ->where('nu_periode', $per)
+                        //         ->update(['data' => $rows[$baris][$idxCol]]);
+
+                        $isUpSuccess = DataTmpl1::updateOrCreate(
+                            ['id_indikator'=> $this->tid_indikator, 'tahun'=> $this->ttahundata,'nu_karakteristik'=> $kar,'nu_baris'=> $c_baris,'nu_periode'=> $per],
+                            ['data' => $rows[$baris][$idxCol]]
+                        );
+
+                        $isUpSuccess->save();
+
                         $idxCol++;
                     }
                 }

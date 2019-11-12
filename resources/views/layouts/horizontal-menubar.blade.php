@@ -28,6 +28,10 @@
                     </ul>
                 </li>
 
+                <li class="has-submenu">
+                    <a href="index.html"><i class="icon-accelerator"></i> Evaluasi Data</a>
+                </li>
+
                 <!-- <li class="has-submenu">
                     <a href="#"><i class="icon-pencil-ruler"></i> Tabel Dinamis <i class="mdi mdi-chevron-down mdi-drop"></i></a>
                     <ul class="submenu megamenu">

@@ -34,38 +34,33 @@ class InputTabelDinamis extends Controller
         $id_indikator = $request->uploaddataidindikator;
         $tahundata = $request->uploaddatatahun;
 
+        //Import Data Into Database
         Excel::import(new DataTmpl1Import($id_indikator, $tahundata), request()->file('uploaddatafile'));
 
-        $indId = Mindikator::where('id', $id_indikator)
-                    ->get();
-
-        $max_baris = Mbarisitems::where('mbaris_id', $indId[0]->mbaris_id)
-                    ->max('no_urut');
-
+        //Get Data Parameter
+        $indId = Mindikator::where('id', $id_indikator)->get();
+        $max_baris = Mbarisitems::where('mbaris_id', $indId[0]->mbaris_id)->max('no_urut');
         $barisitems = Mbarisitems::where('mbaris_id', $indId[0]->mbaris_id)->get();
-
-        $max_karakteristik = Mkarakteristikitems::where('mkarakteristik_id', $indId[0]->mkarakteristik_id)
-                    ->max('no_urut');
-
+        $max_karakteristik = Mkarakteristikitems::where('mkarakteristik_id', $indId[0]->mkarakteristik_id)->max('no_urut');
         $karakteristikitems = Mkarakteristikitems::where('mkarakteristik_id', $indId[0]->mkarakteristik_id)->get();
-
-        $max_periode = Mperiodeitems::where('mperiode_id', $indId[0]->mperiode_id)
-                    ->max('no_urut');
-
+        $max_periode = Mperiodeitems::where('mperiode_id', $indId[0]->mperiode_id)->max('no_urut');
         $periodeitems = Mperiodeitems::where('mperiode_id', $indId[0]->mperiode_id)->get();
-
         $data = DataTmpl1::where('id_indikator', $id_indikator)
                             ->where('tahun', $tahundata)
                             ->get();
         
         return view('tabeldinamis.viewuploadedtable',[
+            'id_indikator' =>  $id_indikator,
+            'nama_indikator' => $indId[0]->nama_indikator,
+            'tahun' => $tahundata,
+            'judul_baris' => $indId[0]->Mbaris->nama_baris,
             'max_baris' => $max_baris,
             'barisitems' => $barisitems,
             'max_karakteristik' => $max_karakteristik,
             'karakteristikitems' => $karakteristikitems,
             'max_periode' => $max_periode,
             'periodeitems' => $periodeitems,
-            'dataitems' => $data,
+            // 'dataitems' => $data,
         ]);
 
     }
