@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('ragam:api')->group(function(){
+    Route::get('/indikator/terakhir', 'IndikatorAPIController@indikatorTerakhir');
+    ROute::get('/indikator/{idIndikator}', 'IndikatorAPIController@tampilkan');
+ });
+
 Route::get('getDataApi', function() {
     $data = DataTmpl1::all();
 

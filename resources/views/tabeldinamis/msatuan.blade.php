@@ -37,25 +37,25 @@
         <div class="card m-b-30">
             <div class="card-body">
 
-                <h4 class="mt-0 header-title">Kelola Master Subjek</h4><br/>
+                <h4 class="mt-0 header-title">Kelola Master Satuan</h4><br/>
 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Subjek</th>
+                        <th>Satuan</th>
                         <th>Aksi</th>
                     </tr>
                     </thead>
 
 
                     <tbody>
-                    @foreach($msubjek as $subjek)
+                    @foreach($msatuan as $satuan)
                         <tr>
-                            <td>{{ $subjek->id }}</td>
-                            <td>{{ $subjek->nama_subjek }}</td>
+                            <td>{{ $satuan->id }}</td>
+                            <td>{{ $satuan->nama_satuan }}</td>
                             <td> 
-                                <button class="btn btn-success" data-toggle="modal" data-target="#tambahSubjekModal">Tambah</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#tambahSatuanModal">Tambah</button>
                                 <button class="btn btn-primary">Edit</button>
                                 <button class="btn btn-danger">Hapus</button>
                             </td>
@@ -71,23 +71,23 @@
 </div> <!-- end row -->
 
 <!-- The Modal -->
-<div class="modal fade" id="tambahSubjekModal">
+<div class="modal fade" id="tambahSatuanModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Tambah Subjek</h4>
+        <h4 class="modal-title">Tambah Satuan</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form id="tambahSubjekForm" action="{{route('tabeldinamis.addSubjek')}}" method="post" enctype="multipart/form-data">
+        <form id="tambahSatuanForm" action="{{route('tabeldinamis.addSatuan')}}" method="post" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
-                <label for="tambahSubjekNamaSubjek">Subjek</label>
-                <input type="text" class="form-control" id="tambahSubjekNamaSubjek" name="tambahSubjekNamaSubjek" />
+                <label for="tambahSatuanNamaSatuan">Satuan</label>
+                <input type="text" class="form-control" id="tambahSatuanNamaSatuan" name="tambahSatuanNamaSatuan" />
             </div>
 
             <div class="form-group">
@@ -105,5 +105,4 @@
     </div>
   </div>
 </div>
-
 @endsection

@@ -16,13 +16,14 @@ class Mindikator extends Migration
         Schema::create('mindikator', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_indikator');
-            $table->text('deskripsi_indikator');
-            $table->text('keterangan_indikator');
+            $table->text('deskripsi_indikator')->nullable();
+            $table->text('keterangan_indikator')->nullable();
             $table->bigInteger('mbaris_id');
             $table->bigInteger('mkarakteristik_id');
             $table->bigInteger('mperiode_id');
             $table->bigInteger('msatuan_id');
             $table->bigInteger('msubjek_id');
+            $table->timestamps();
         });
     }
 
