@@ -42,25 +42,31 @@
 
                 <h4 class="mt-0 header-title">Pilih Indikator</h4><br/>
 
-                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <table id="datatable" class="table table-bordered dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Indikator</th>
-                        <th>Subjek</th>
+                        <th>Turunan Indikator</th>
+                        <th>Tahun Data</th>
+                        <th>Master Indikator</th>
+                        <th>Status Tayang</th>
+                        <th>Status Entri</th>
                         <th>Aksi</th>
                     </tr>
                     </thead>
 
 
                     <tbody>
-                    @foreach($mindikator as $indikator)
+                    @foreach($turunanIndikator as $tindikator)
                         <tr>
-                            <td>{{ $indikator->id }}</td>
-                            <td>{{ $indikator->nama_indikator }}</td>
-                            <td>{{ $indikator->Msubjek->nama_subjek }}</td>
+                            <td>{{ $tindikator->id }}</td>
+                            <td>{{ $tindikator->nama_transaksi_indikator }}</td>
+                            <td>{{ $tindikator->tahundata}}</td>
+                            <td>{{ $tindikator->Mindikator->nama_indikator }}</td>
+                            <td>{{ $tindikator->status_tayang}}</td>
+                            <td>{{ $tindikator->status_entri}}</td>
                             <td> 
-                                <a href="{{route('tabeldinamis.getDataIndikator', $indikator->id)}}" class="btn btn-primary" target="_blank">Tambah Data</a>
+                                <a href="{{route('tabeldinamis.getDataIndikator', $tindikator->id)}}" class="btn btn-primary" target="_blank">Tambah Data</a>
                             </td>
                         </tr>
                     @endforeach

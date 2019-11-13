@@ -44,22 +44,24 @@
                 <form id="uploaddataform" action="{{ route('tabeldinamis.uploadDataIndikator') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="uploaddataidindikator">ID Indikator</label>
-                        <input type="text" name="uploaddataidindikator" id="uploaddataidindikator" value="{{$mindikator->id}}" class="form-control" readOnly/>
+                        <!-- <label for="uploaddataidindikator">ID Turunan Indikator</label> -->
+                        <input type="hidden" name="uploaddataidindikator" id="uploaddataidindikator" value="{{$turunanIndikator->id}}" class="form-control" readOnly/>
                     </div>
+
                     <div class="form-group">
-                        <label for="uploaddataindikator">Indikator</label>
-                        <input type="text" id="uploaddataindikator" name="uploaddataindikator" value="{{$mindikator->nama_indikator}}" class="form-control" readOnly/>
+                        <label for="uploaddataindikator">Turunan Indikator</label>
+                        <input type="text" id="uploaddataindikator" name="uploaddataindikator" value="{{$turunanIndikator->nama_transaksi_indikator}}" class="form-control" readOnly/>
                     </div>
+
                     <div class="form-group">
                         <label for="uploaddatatahun">Tahun Data</label>
-                        <select id="uploaddatatahun" name="uploaddatatahun" class="form-control">
-                            <option value="2011">2011</option>
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
+                        <input id="uploaddatatahun" name="uploaddatatahun" class="form-control" value="{{$turunanIndikator->tahundata}}" readOnly />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="uploaddataadministrativelevel">Administrative Level</label>
+                        <select id="uploaddataadministrativelevel" name="uploaddataadministrativelevel" class="form-control" readOnly>
+                            <option value="{{$turunanIndikator->madministrativelevel_id}}" >{{$turunanIndikator->MadministrativeLevel->nama_administrativelevel}}</option>
                         </select>
                     </div>
 

@@ -12,6 +12,6 @@ class Mbaris extends Model
 
     public function Mbarisitems()
     {
-        return $this->hasMany('App\Mbarisitems', 'mbaris_id');
+        return $this->hasMany('App\Mbarisitems', 'mbaris_id','id');
     }
 }

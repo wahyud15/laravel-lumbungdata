@@ -12,6 +12,11 @@ use App\Mbarisitems;
 use App\Mperiode;
 use App\Mperiodeitems;
 use App\Msatuan;
+use App\Mseriesleveltabel;
+use App\TransaksiIndikator;
+use App\User;
+use App\AdministrativeLevel;
+use App\Mtahundata;
 
 class TabelDinamis extends Controller
 {
@@ -92,7 +97,7 @@ class TabelDinamis extends Controller
             'mkarakteristik_id' => $mkarakteristik_id, 
             'mbaris_id' => $mbaris_id, 
             'mperiode_id' => $mperiode_id, 
-            'msatuan_id' => $msatuan_id
+            'msatuan_id' => $msatuan_id,
             ]
         );
 
@@ -194,4 +199,5 @@ class TabelDinamis extends Controller
         return view('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
 
     }
+
 }

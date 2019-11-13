@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mindikator extends Model
 {
     protected $table = 'mindikator';
-    protected $fillable = ['nama_indikator', 'mbaris_id', 'mkarakteristik_id', 'mperiode_id', 'msatuan_id', 'msubjek_id'];
+    protected $fillable = ['nama_indikator', 'mbaris_id', 'mkarakteristik_id', 'mperiode_id', 'msatuan_id', 'msubjek_id', 'mseriesleveltabel_id'];
     public $timestamps = false;
 
     public function Mbaris()
@@ -34,4 +34,5 @@ class Mindikator extends Model
     {
         return $this->hasOne('App\Msubjek', 'id', 'msubjek_id');
     }
+
 }
