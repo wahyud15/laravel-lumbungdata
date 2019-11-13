@@ -75,6 +75,19 @@ Route::post('/tabeldinamis/addSatuan', 'TabelDinamis@addSatuan')
 //=======================================
 
 //=======================================
+//Tabel Dinamis - Mapping Tabel Dinamis
+//=======================================
+Route::get('/tabeldinamis/showmappingindikator', 'TurunanIndikator@showMappingIndikator')
+        ->name('tabeldinamis.showMappingIndikator');
+
+Route::post('/tabeldinamis/mappingindikator', 'TurunanIndikator@mappingIndikator')
+        ->name('tabeldinamis.mappingIndikator');
+
+//=======================================
+//End Tabel Dinamis - Mapping Tabel Dinamis
+//=======================================
+
+//=======================================
 //Tabel Dinamis - Input Tabel Dinamis
 //=======================================
 Route::get('/tabeldinamis/input', 'InputTabelDinamis@showInputTabelDinamis')

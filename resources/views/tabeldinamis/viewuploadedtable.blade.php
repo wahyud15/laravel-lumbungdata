@@ -23,7 +23,16 @@
 <!-- <script src="{{ asset('js/tabeldinamis/inputtabeldinamis.js') }}"></script>   -->
 @stop
 
-@inject('data', 'App\DataTmpl1')
+@if($madministrativelevel_id == 1)
+    @inject('data', 'App\DataTmpl1New')
+@endif
+
+@if($madministrativelevel_id == 2)
+
+    @inject('data', 'App\DataTmpl2New')
+@endif
+
+
 
 @extends('layouts.horizontal')
 
@@ -82,7 +91,7 @@
                                     {
                                         for($p=0; $p < $max_periode; $p++)
                                         {
-                                            echo '<td>'.$data->where("id_indikator", $id_indikator)
+                                            echo '<td>'.$data->where("turunanindikator_id", $id_indikator)
                                                             ->where("tahun", $tahun)
                                                             ->where("nu_baris", $b+1)
                                                             ->where("nu_karakteristik", $k+1)

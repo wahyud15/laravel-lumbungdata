@@ -13,7 +13,10 @@ class Administrativelevel extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('madministrativelevel', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nama_administrativelevel');
+        });
     }
 
     /**
