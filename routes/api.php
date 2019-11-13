@@ -20,7 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('ragam:api')->group(function(){
     Route::get('/indikator/terakhir', 'IndikatorAPIController@indikatorTerakhir');
-    ROute::get('/indikator/{idIndikator}', 'IndikatorAPIController@tampilkan');
+    Route::get('/indikator/{idIndikator}', 'IndikatorAPIController@tampilkan');
+    Route::get('/cari', 'IndikatorAPIController@cari');;
  });
 
 Route::get('getDataApi', function() {
