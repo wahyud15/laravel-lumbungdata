@@ -3,7 +3,7 @@
 
         <!-- Logo-->
         <div>
-            <a href="index.html" class="logo">
+            <a href="{{url('')}}" class="logo">
                 <span class="logo-light">
                         <i class="mdi mdi-camera-control"></i> DATA CARE
                 </span>
@@ -98,7 +98,6 @@
                 <li class="dropdown notification-list list-inline-item">
                     <div class="dropdown notification-list nav-pro-img">
                         <a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-<<<<<<< HEAD:resources/views/layouts/horizontal-header-backup.blade.php
 <<<<<<< HEAD
                             <img src="{{asset('assets/images/users/user-4.jpg')}}" alt="user" class="rounded-circle">
 =======
@@ -107,9 +106,6 @@
                             @endauth
                             <!-- <img src="assets/images/users/user-4.jpg" alt="user" class="rounded-circle"> -->
 >>>>>>> b18327a3baf92b4a465333060a452896242e916c
-=======
-                            <img src="assets/images/users/user-4.jpg" alt="user" class="rounded-circle">
->>>>>>> parent of 22954bb... metadata:resources/views/layouts/horizontal-header.blade.php
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->

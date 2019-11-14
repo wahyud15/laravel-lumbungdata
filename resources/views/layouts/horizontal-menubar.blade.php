@@ -7,15 +7,11 @@
             <ul class="navigation-menu">
 
                 <li class="has-submenu">
-<<<<<<< HEAD:resources/views/layouts/horizontal-menubar-backup.blade.php
 <<<<<<< HEAD
                     <a href="{{url('')}}"><i class="icon-accelerator"></i> Dashboard</a>
 =======
                     <a href="{{ route('dashboard') }}"><i class="icon-accelerator"></i> Dashboard</a>
 >>>>>>> b18327a3baf92b4a465333060a452896242e916c
-=======
-                    <a href="index.html"><i class="icon-accelerator"></i> Dashboard</a>
->>>>>>> parent of 22954bb... metadata:resources/views/layouts/horizontal-menubar.blade.php
                 </li>
 
                 <li class="has-submenu">
@@ -46,7 +42,6 @@
                         <li><a href="{{ route('tabeldinamis.inputtabeldinamis') }}">Input Data Tabel</a></li>
                     </ul>
                 </li>
-<<<<<<< HEAD:resources/views/layouts/horizontal-menubar-backup.blade.php
 <<<<<<< HEAD
                 <!---metadata-->
                 <li class="has-submenu">
@@ -72,8 +67,6 @@
                 <li class="has-submenu">
                     <a href="{{ route('galeridata.showGaleriData') }}"><i class="icon-blackboard-graph"></i> Galeri Data</a>
                 </li>
-=======
->>>>>>> parent of 22954bb... metadata:resources/views/layouts/horizontal-menubar.blade.php
 
                 <!-- <li class="has-submenu">
                     <a href="#"><i class="icon-pencil-ruler"></i> Tabel Dinamis <i class="mdi mdi-chevron-down mdi-drop"></i></a>
