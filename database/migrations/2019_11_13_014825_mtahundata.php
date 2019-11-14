@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DataTmpl2 extends Migration
+class Mtahundata extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class DataTmpl2 extends Migration
      */
     public function up()
     {
-        Schema::create('datatmpl2new', function(Blueprint $table) {
+        Schema::create('mtahundata', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('turunanindikator_id');
-            $table->string('tahun');
-            $table->integer('nu_karakteristik');
-            $table->integer('nu_baris');
-            $table->integer('nu_periode');
-            $table->string('data')->nullable();
         });
     }
 

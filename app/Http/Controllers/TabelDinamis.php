@@ -12,6 +12,11 @@ use App\Mbarisitems;
 use App\Mperiode;
 use App\Mperiodeitems;
 use App\Msatuan;
+use App\Mseriesleveltabel;
+use App\TransaksiIndikator;
+use App\User;
+use App\AdministrativeLevel;
+use App\Mtahundata;
 
 class TabelDinamis extends Controller
 {
@@ -73,8 +78,9 @@ class TabelDinamis extends Controller
         );
 
         $msubjek = Msubjek::all();
-        return view('tabeldinamis.msubjek', ['msubjek' => $msubjek]);
+        // return view('tabeldinamis.msubjek', ['msubjek' => $msubjek]);
 
+        return redirect()->route('tabeldinamis.msubjek', ['msubjek' => $msubjek]);
     }
 
     public function addIndikator(Request $request)
@@ -92,7 +98,7 @@ class TabelDinamis extends Controller
             'mkarakteristik_id' => $mkarakteristik_id, 
             'mbaris_id' => $mbaris_id, 
             'mperiode_id' => $mperiode_id, 
-            'msatuan_id' => $msatuan_id
+            'msatuan_id' => $msatuan_id,
             ]
         );
 
@@ -103,15 +109,25 @@ class TabelDinamis extends Controller
         $mperiode = Mperiode::all();
         $msatuan = Msatuan::all();
 
-        return view('tabeldinamis.mindikator', 
-                    [
-                        'msubjek' => $msubjek,
-                        'mindikator' => $mindikator,
-                        'mkarakteristik' => $mkarakteristik,
-                        'mbaris' => $mbaris,
-                        'mperiode' => $mperiode,
-                        'msatuan' => $msatuan,
-                    ]);
+        // return view('tabeldinamis.mindikator', 
+        //             [
+        //                 'msubjek' => $msubjek,
+        //                 'mindikator' => $mindikator,
+        //                 'mkarakteristik' => $mkarakteristik,
+        //                 'mbaris' => $mbaris,
+        //                 'mperiode' => $mperiode,
+        //                 'msatuan' => $msatuan,
+        //             ]);
+
+        return redirect()->route('tabeldinamis.mindikator', 
+        [
+            'msubjek' => $msubjek,
+            'mindikator' => $mindikator,
+            'mkarakteristik' => $mkarakteristik,
+            'mbaris' => $mbaris,
+            'mperiode' => $mperiode,
+            'msatuan' => $msatuan,
+        ]);
 
     }
 
@@ -134,7 +150,9 @@ class TabelDinamis extends Controller
         }
 
         $mkarakteristik = Mkarakteristik::all();
-        return view('tabeldinamis.mkarakteristik', ['mkarakteristik' => $mkarakteristik]);
+        // return view('tabeldinamis.mkarakteristik', ['mkarakteristik' => $mkarakteristik]);
+
+        return redirect()->route('tabeldinamis.mkarakteristik', ['mkarakteristik' => $mkarakteristik]);
         
     }
 
@@ -157,7 +175,9 @@ class TabelDinamis extends Controller
         }
 
         $mbaris = Mbaris::all();
-        return view('tabeldinamis.mbaris', ['mbaris' => $mbaris]);
+        // return view('tabeldinamis.mbaris', ['mbaris' => $mbaris]);
+
+        return redirect()->route('tabeldinamis.mbaris', ['mbaris' => $mbaris]);
     }
 
     public function addPeriode(Request $request)
@@ -179,7 +199,9 @@ class TabelDinamis extends Controller
         }
 
         $mperiode = Mperiode::all();
-        return view('tabeldinamis.mperiode', ['mperiode' => $mperiode]);
+        // return view('tabeldinamis.mperiode', ['mperiode' => $mperiode]);
+
+        return redirect()->route('tabeldinamis.mperiode', ['mperiode' => $mperiode]);
     }
 
     public function addSatuan(Request $request)
@@ -191,7 +213,9 @@ class TabelDinamis extends Controller
         );
 
         $msatuan = Msatuan::all();
-        return view('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
+        // return view('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
 
+        return redirect()->route('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
     }
+
 }

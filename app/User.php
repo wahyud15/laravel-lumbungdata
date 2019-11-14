@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function TurunanInstansi()
+    {
+        return $this->hasOne('App\TurunanInstansi', 'id', 'turunaninstansi_id');
+    }
+
+    public function IsSuperAdmin()
+    {
+        return Auth()->user()->level === '20';
+    }
 }
