@@ -45,12 +45,12 @@
                     @csrf
                     <div class="form-group">
                         <!-- <label for="uploaddataidindikator">ID Turunan Indikator</label> -->
-                        <input type="hidden" name="uploaddataidindikator" id="uploaddataidindikator" value="{{$turunanIndikator->id}}" class="form-control" readOnly/>
+                        <input type="hidden" name="uploaddataturunanindikator_id" id="uploaddataturunanindikator_id" value="{{$turunanIndikator->id}}" class="form-control" readOnly/>
                     </div>
 
                     <div class="form-group">
-                        <label for="uploaddataindikator">Turunan Indikator</label>
-                        <input type="text" id="uploaddataindikator" name="uploaddataindikator" value="{{$turunanIndikator->nama_transaksi_indikator}}" class="form-control" readOnly/>
+                        <label for="uploaddatanamaturunanindikator">Turunan Indikator</label>
+                        <input type="text" id="uploaddatanamaturunanindikator" name="uploaddatanamaturunanindikator" value="{{$turunanIndikator->nama_transaksi_indikator}}" class="form-control" readOnly/>
                     </div>
 
                     <div class="form-group">

@@ -24,15 +24,16 @@ class InputTabelDinamis extends Controller
     {
         // $mindikator = Mindikator::all();
         // return view('tabeldinamis.listindikator', ['mindikator' => $mindikator]);
+        $turunanIndikator;
 
-        $turunanIndikator = Transaksiindikator::all();
+        if(Auth()->user()->IsSuperAdmin())
+        {
+            $turunanIndikator = Transaksiindikator::all();
+        }else{
+            $turunanIndikator = Transaksiindikator::where('user_id' , Auth()->user()->id)->get();
+        }
+
         return view('tabeldinamis.listindikator', ['turunanIndikator' => $turunanIndikator]);
-    }
-
-    public function showMappingTabel()
-    {
-        $transaksiindikator = Mindikator::all();
-        return view('tabeldinamis.listtransaksiindikator', ['transaksiindikator' => $transaksiindikator]);
     }
 
     public function getDataIndikator($id)
@@ -42,9 +43,30 @@ class InputTabelDinamis extends Controller
         return view('tabeldinamis.uploaddatatabel', ['turunanIndikator' => $turunanIndikator]);
     }
 
+    public function setTayangkan($turunanIndikator_id)
+    {
+        $isSuccessTayangkan = Transaksiindikator::updateOrCreate(
+            ['id' => $turunanIndikator_id],
+            ['status_tayang' => 1]
+        );
+
+        return redirect()->route('tabeldinamis.inputtabeldinamis');
+    }
+
+    public function setTurunTayang($turunanIndikator_id)
+    {
+        $isSuccessTurunTayang = Transaksiindikator::updateOrCreate(
+            ['id' => $turunanIndikator_id],
+            ['status_tayang' => 1]
+        );
+
+        return redirect()->route('tabeldinamis.inputtabeldinamis');
+    }
+
     public function uploadDataIndikator(Request $request)
     {
-        $id_indikator = $request->uploaddataidindikator;
+        // $id_indikator = $request->uploaddataidindikator;
+        $turunanIndikator_id = $request->uploaddataturunanindikator_id;
         $tahundata = $request->uploaddatatahun;
         $administrativeLevel = $request->uploaddataadministrativelevel;
 
@@ -52,42 +74,44 @@ class InputTabelDinamis extends Controller
         // Excel::import(new DataTmpl1Import($id_indikator, $tahundata), request()->file('uploaddatafile'));
         if($administrativeLevel == 1)
         {
-            Excel::import(new DataTmpl1NewImport($id_indikator, $tahundata), request()->file('uploaddatafile'));
+            Excel::import(new DataTmpl1NewImport($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
+            TransaksiIndikator::updateOrCreate(
+                ['id' => $turunanIndikator_id , 'tahundata' => $tahundata],
+                ['status_entri' => 1]
+            );
         }
 
         if($administrativeLevel == 2)
         {
-            Excel::import(new DataTmpl2NewImport($id_indikator, $tahundata), request()->file('uploaddatafile'));
+            Excel::import(new DataTmpl2NewImport($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
+            TransaksiIndikator::updateOrCreate(
+                ['id' => $turunanIndikator_id , 'tahundata' => $tahundata],
+                ['status_entri' => 1]
+            );
         }
         
-
         //Get Data Parameter
-        $turunanIndikator = TransaksiIndikator::where('id', $id_indikator)->where('tahundata',$tahundata)->first();
-        $indId = Mindikator::where('id', $turunanIndikator->mindikator_id)
-                                ->get();
-        $max_baris = Mbarisitems::where('mbaris_id', $indId[0]->mbaris_id)->max('no_urut');
-        $barisitems = Mbarisitems::where('mbaris_id', $indId[0]->mbaris_id)->get();
-        $max_karakteristik = Mkarakteristikitems::where('mkarakteristik_id', $indId[0]->mkarakteristik_id)->max('no_urut');
-        $karakteristikitems = Mkarakteristikitems::where('mkarakteristik_id', $indId[0]->mkarakteristik_id)->get();
-        $max_periode = Mperiodeitems::where('mperiode_id', $indId[0]->mperiode_id)->max('no_urut');
-        $periodeitems = Mperiodeitems::where('mperiode_id', $indId[0]->mperiode_id)->get();
-        // $data = DataTmpl1New::where('id_indikator', $id_indikator)
-        //                     ->where('tahun', $tahundata)
-        //                     ->get();
+        $turunanIndikator = TransaksiIndikator::where('id', $turunanIndikator_id)->where('tahundata',$tahundata)->first();
+        $indId = Mindikator::where('id', $turunanIndikator->mindikator_id)->first();
+        $max_baris = Mbarisitems::where('mbaris_id', $indId->mbaris_id)->max('no_urut');
+        $barisitems = Mbarisitems::where('mbaris_id', $indId->mbaris_id)->get();
+        $max_karakteristik = Mkarakteristikitems::where('mkarakteristik_id', $indId->mkarakteristik_id)->max('no_urut');
+        $karakteristikitems = Mkarakteristikitems::where('mkarakteristik_id', $indId->mkarakteristik_id)->get();
+        $max_periode = Mperiodeitems::where('mperiode_id', $indId->mperiode_id)->max('no_urut');
+        $periodeitems = Mperiodeitems::where('mperiode_id', $indId->mperiode_id)->get();
         
         return view('tabeldinamis.viewuploadedtable',[
             'id_indikator' =>  $turunanIndikator->id,
             'madministrativelevel_id' => $turunanIndikator->madministrativelevel_id,
             'nama_indikator' => $turunanIndikator->nama_transaksi_indikator,
             'tahun' => $tahundata,
-            'judul_baris' => $indId[0]->Mbaris->nama_baris,
+            'judul_baris' => $indId->Mbaris->nama_baris,
             'max_baris' => $max_baris,
             'barisitems' => $barisitems,
             'max_karakteristik' => $max_karakteristik,
             'karakteristikitems' => $karakteristikitems,
             'max_periode' => $max_periode,
             'periodeitems' => $periodeitems,
-            // 'dataitems' => $data,
         ]);
 
     }

@@ -115,17 +115,17 @@ class DatabaseSeeder extends Seeder
 
         //Insert Baris Items
         DB::table('mbarisitems')->insert([
-            ['id' => 1, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 2, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 3, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 4, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 5, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 6, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 7, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 8, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 9, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 10, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
-            ['id' => 11, 'no_urut' => 1, 'nama_items' => 'LOMBOK BARAT', 'mbaris_id' => 1],
+            ['id' => 1, 'no_urut' => 1, 'nama_items' => 'Provinsi Nusa Tenggara Barat', 'mbaris_id' => 1],
+            ['id' => 2, 'no_urut' => 1, 'nama_items' => 'Kabupaten Lombok Barat', 'mbaris_id' => 2],
+            ['id' => 3, 'no_urut' => 1, 'nama_items' => 'Kabupaten Lombok Tengah', 'mbaris_id' => 3],
+            ['id' => 4, 'no_urut' => 1, 'nama_items' => 'Kabupaten Lombok Timur', 'mbaris_id' => 4],
+            ['id' => 5, 'no_urut' => 1, 'nama_items' => 'Kabupaten Sumbawa', 'mbaris_id' => 5],
+            ['id' => 6, 'no_urut' => 1, 'nama_items' => 'Kabupaten Dompu', 'mbaris_id' => 6],
+            ['id' => 7, 'no_urut' => 1, 'nama_items' => 'Kabupaten Bima', 'mbaris_id' => 7],
+            ['id' => 8, 'no_urut' => 1, 'nama_items' => 'Kabupaten Sumbawa Barat', 'mbaris_id' => 8],
+            ['id' => 9, 'no_urut' => 1, 'nama_items' => 'Kabupaten Lombok Utara', 'mbaris_id' => 9],
+            ['id' => 10, 'no_urut' => 1, 'nama_items' => 'Kota Mataram', 'mbaris_id' => 10],
+            ['id' => 11, 'no_urut' => 1, 'nama_items' => 'Kota Bima', 'mbaris_id' => 11],
         ]);
 
         //Insert Indikator
@@ -135,36 +135,21 @@ class DatabaseSeeder extends Seeder
 
         //Insert Transaksi Indikator
         DB::table('transaksiindikator')->insert([
-            ['id' => 1, 'nama_transaksi_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah Kabupaten Lombok Barat','mindikator_id' => 1, 'madministrativelevel_id' => 2, 'user_id' => 3],
+            ['id' => 1, 'nama_transaksi_indikator' => 'Luas Sawah Berdasarkan Jenis Sawah Provinsi Nusa Tenggara Barat','mindikator_id' => 1, 'tahundata' => 2011,'madministrativelevel_id' => 1, 'user_id' => 2],
         ]);
 
-        //Insert Data Template 1
-        // DB::table('datatmpl1')->insert([
-        //     ['id' => 1, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 1],
-        //     ['id' => 2, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 2, 'nu_periode' => 1],
-        //     ['id' => 3, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 3, 'nu_periode' => 1],
-        //     ['id' => 4, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 2],
-        //     ['id' => 5, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 2, 'nu_periode' => 2],
-        //     ['id' => 6, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 3, 'nu_periode' => 2],
-        //     ['id' => 7, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 3],
-        //     ['id' => 8, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 2, 'nu_periode' => 3],
-        //     ['id' => 9, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 3, 'nu_periode' => 3],
-        //     ['id' => 10, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 4],
-        //     ['id' => 11, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 2, 'nu_periode' => 4],
-        //     ['id' => 12, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 3, 'nu_periode' => 4],
-        //     ['id' => 13, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 1],
-        //     ['id' => 14, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 2, 'nu_periode' => 1],
-        //     ['id' => 15, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 3, 'nu_periode' => 1],
-        //     ['id' => 16, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 2],
-        //     ['id' => 17, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 2, 'nu_periode' => 2],
-        //     ['id' => 18, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 3, 'nu_periode' => 2],
-        //     ['id' => 19, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 3],
-        //     ['id' => 20, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 2, 'nu_periode' => 3],
-        //     ['id' => 21, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 3, 'nu_periode' => 3],
-        //     ['id' => 22, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 4],
-        //     ['id' => 23, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 2, 'nu_periode' => 4],
-        //     ['id' => 24, 'id_indikator' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 3, 'nu_periode' => 4],
-        // ]);
+        // Insert Data Template 1 New
+        DB::table('datatmpl1new')->insert([
+            ['id' => 1, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 1],
+            ['id' => 2, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 2],
+            ['id' => 3, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 3],
+            ['id' => 4, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 1, 'nu_baris' => 1, 'nu_periode' => 4],
+
+            ['id' => 5, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 1],
+            ['id' => 6, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 2],
+            ['id' => 7, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 3],
+            ['id' => 8, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 4],
+        ]);
 
     }
 }

@@ -62,6 +62,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'ragam' => \App\Http\Middleware\RagamAccess::class,
+        'isSuperAdmin' => \App\Http\Middleware\IsSuperAdmin::class,
     ];
 
     /**

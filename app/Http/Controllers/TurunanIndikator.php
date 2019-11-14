@@ -95,7 +95,15 @@ class TurunanIndikator extends Controller
         $tahun = Mtahundata::all();
         $muser = User::all();
 
-        return view('tabeldinamis.maapingindikator', [
+        // return view('tabeldinamis.maapingindikator', [
+        //     'mt_indikator' => $mt_indikator,
+        //     'mindikator' => $mindikator,
+        //     'muser' => $muser,
+        //     'administrativelevel' => $administrativelevel,
+        //     'tahun' => $tahun,
+        //     ]);
+
+        return redirect()->route('tabeldinamis.showMappingIndikator', [
             'mt_indikator' => $mt_indikator,
             'mindikator' => $mindikator,
             'muser' => $muser,

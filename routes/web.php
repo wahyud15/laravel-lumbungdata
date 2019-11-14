@@ -12,62 +12,68 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+        Auth::logout();
+        return view('login');
 });
 
-Route::get('/vertikal', function () {
-    return view('vertikal');
-});
 
 Route::get('/horizontal', function () {
     return view('horizontal');
-});
+})->middleware('auth')->name('dashboard');
 
-Route::get('/loginmenu', function () {
-    return view('login');
-})->name('loginpage');
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 //=======================================
 //Tabel Dinamis - Kelola Master Tabel
 //=======================================
 Route::get('/tabeldinamis/msubjek', 'TabelDinamis@showMsubjek')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.msubjek');
 
 Route::get('/tabeldinamis/mindikator', 'TabelDinamis@showMindikator')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.mindikator');
 
 Route::get('/tabeldinamis/mkarakteristik', 'TabelDinamis@showMkarakteristik')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.mkarakteristik');
 
 Route::get('/tabeldinamis/mbaris', 'TabelDinamis@showMbaris')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.mbaris');
 
 Route::get('/tabeldinamis/mperiode', 'TabelDinamis@showMperiode')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.mperiode');
 
 Route::get('/tabeldinamis/msatuan', 'TabelDinamis@showMsatuan')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.msatuan');
 
 Route::post('/tabeldinamis/addIndikator', 'TabelDinamis@addIndikator')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addIndikator');
 
 Route::post('/tabeldinamis/addSubjek', 'TabelDinamis@addSubjek')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addSubjek');
 
 Route::post('/tabeldinamis/addKarakteristik', 'TabelDinamis@addKarakteristik')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addKarakteristik');
 
 Route::post('/tabeldinamis/addBaris', 'TabelDinamis@addBaris')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addBaris');
 
 Route::post('/tabeldinamis/addPeriode', 'TabelDinamis@addPeriode')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addPeriode');
 
 Route::post('/tabeldinamis/addSatuan', 'TabelDinamis@addSatuan')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addSatuan');
 
 //=======================================
@@ -78,9 +84,11 @@ Route::post('/tabeldinamis/addSatuan', 'TabelDinamis@addSatuan')
 //Tabel Dinamis - Mapping Tabel Dinamis
 //=======================================
 Route::get('/tabeldinamis/showmappingindikator', 'TurunanIndikator@showMappingIndikator')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.showMappingIndikator');
 
 Route::post('/tabeldinamis/mappingindikator', 'TurunanIndikator@mappingIndikator')
+        ->middleware('isSuperAdmin')
         ->name('tabeldinamis.mappingIndikator');
 
 //=======================================
@@ -91,16 +99,40 @@ Route::post('/tabeldinamis/mappingindikator', 'TurunanIndikator@mappingIndikator
 //Tabel Dinamis - Input Tabel Dinamis
 //=======================================
 Route::get('/tabeldinamis/input', 'InputTabelDinamis@showInputTabelDinamis')
+        ->middleware('auth')
         ->name('tabeldinamis.inputtabeldinamis');
 
 Route::get('/tabeldinamis/getDataIndikator/{id}', 'InputTabelDinamis@getDataIndikator')
+        ->middleware('auth')
         ->name('tabeldinamis.getDataIndikator');
 
 Route::post('/tabeldinamis/uploadDataIndikator', 'InputTabelDinamis@uploadDataIndikator')
+        ->middleware('auth')
         ->name('tabeldinamis.uploadDataIndikator');
+
+Route::get('/tabeldinamis/setTayangkan/{id}', 'InputTabelDinamis@setTayangkan')
+        ->middleware('auth')
+        ->name('tabeldinamis.setTayangkan');
+
+Route::get('/tabeldinamis/setTurunTayang/{id}', 'InputTabelDinamis@setTurunTayang')
+        ->middleware('auth')
+        ->name('tabeldinamis.setTurunTayang');
 
 //=======================================
 //End Tabel Dinamis - Input Tabel Dinamis
+//=======================================
+
+//=======================================
+//Galeri Data
+//=======================================
+Route::get('/galeridata', 'GaleriData@showGaleriData')
+        ->name('galeridata.showGaleriData');
+
+Route::get('/galeridata/download/{id}/{tahun}/{admlevel}', 'GaleriData@viewData')
+        ->name('galeridata.viewData');
+
+//=======================================
+//End Galeri Data
 //=======================================
 
 Route::get('/data/showupload', 'UploadData@showUploadData')
