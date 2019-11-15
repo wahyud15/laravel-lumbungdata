@@ -60,7 +60,7 @@
                             <td>{{ $gdata->nama_transaksi_indikator }}</td>
                             <td>{{ $gdata->tahundata}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary" target="_blank">Download</a>
+                                <a href="{{ route('galeridata.downloadData', [$gdata->id, $gdata->tahundata, $gdata->madministrativelevel_id]) }}" class="btn btn-primary" target="_blank">Download</a>
                                 <a href="{{ route('galeridata.viewData', [$gdata->id, $gdata->tahundata, $gdata->madministrativelevel_id]) }}" class="btn btn-primary mx-1" target="_blank">View</a>
                             </td>
                         </tr>

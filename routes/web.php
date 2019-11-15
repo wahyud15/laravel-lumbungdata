@@ -17,9 +17,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/horizontal', function () {
-    return view('horizontal');
-})->middleware('auth')->name('dashboard');
+Route::get('/horizontal', 'Dashboard@showDashboard')
+        ->middleware('auth')
+        ->name('dashboard');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
@@ -128,8 +128,11 @@ Route::get('/tabeldinamis/setTurunTayang/{id}', 'InputTabelDinamis@setTurunTayan
 Route::get('/galeridata', 'GaleriData@showGaleriData')
         ->name('galeridata.showGaleriData');
 
-Route::get('/galeridata/download/{id}/{tahun}/{admlevel}', 'GaleriData@viewData')
+Route::get('/galeridata/viewdata/{id}/{tahun}/{admlevel}', 'GaleriData@viewData')
         ->name('galeridata.viewData');
+
+Route::get('/galeridata/downloaddata/{id}/{tahun}/{admlevel}', 'GaleriData@downloadData')
+        ->name('galeridata.downloadData');
 
 //=======================================
 //End Galeri Data

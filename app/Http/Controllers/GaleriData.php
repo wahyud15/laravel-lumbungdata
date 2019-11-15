@@ -12,6 +12,9 @@ use App\Mperiode;
 use App\Mperiodeitems;
 use App\Msatuan;
 use App\Mindikator;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\DataTmpl1NewExport;
+use App\Exports\DataTmpl2NewExport;
 
 class GaleriData extends Controller
 {
@@ -50,5 +53,19 @@ class GaleriData extends Controller
             'max_periode' => $max_periode,
             'periodeitems' => $periodeitems,
         ]);
+    }
+
+    public function downloadData($id, $tahun, $admlevel)
+    {
+        if($admlevel == 1)
+        {
+            return Excel::download(new DataTmpl1NewExport($id, $tahun, $admlevel), 'data.xlsx');
+        }
+
+        if($admlevel == 2)
+        {
+            return Excel::download(new DataTmpl2NewExport($id, $tahun, $admlevel), 'data.xlsx');
+        }
+        
     }
 }
