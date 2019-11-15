@@ -3,9 +3,10 @@
 
         <!-- Logo-->
         <div>
-            <span class="logo-light">
-                   <i class="mdi mdi-camera-control"></i> DATA CARE
-            </span>
+            <a href="#" class="logo">
+                <span class="logo-light">
+                        <i class="mdi mdi-camera-control"></i> DATA CARE
+                </span>
             </a>
         </div>
         <!-- End Logo-->
