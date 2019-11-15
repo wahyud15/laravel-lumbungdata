@@ -4,6 +4,8 @@
         <!-- Logo-->
         <div>
             <a href="#" class="logo">
+            <a href="{{ route('dashboard') }}" class="logo">
+            <a href="#" class="logo">
                 <span class="logo-light">
                         <i class="mdi mdi-camera-control"></i> DATA CARE
                 </span>
