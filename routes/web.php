@@ -17,9 +17,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/horizontal', function () {
-    return view('horizontal');
-})->middleware('auth')->name('dashboard');
+Route::get('/horizontal', 'Dashboard@showDashboard')
+        ->middleware('auth')
+        ->name('dashboard');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
