@@ -83,6 +83,19 @@ class TabelDinamis extends Controller
         return redirect()->route('tabeldinamis.msubjek', ['msubjek' => $msubjek]);
     }
 
+    public function editSubjek(Request $request)
+    {
+        $msubjek_id = $request->msubjek_id;
+        $msubjek_nama_subjek = $request->msubjek_nama_subjek;
+
+        Msubjek::updateOrCreate(
+            ['id' => $msubjek_id],
+            ['nama_subjek' => $msubjek_nama_subjek]
+        );
+
+        return redirect()->route('tabeldinamis.msubjek');
+    }
+
     public function addIndikator(Request $request)
     {
         $nama_indikator = $request->tambahIndikatorNamaIndikator;

@@ -5,7 +5,7 @@
         <div>
             <a href="#" class="logo">
                 <span class="logo-light">
-                        <i class="mdi mdi-camera-control"></i> DATA CARE
+                        <i class="mdi mdi-camera-control"></i> RUDATs
                 </span>
             </a>
         </div>
