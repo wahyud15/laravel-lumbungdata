@@ -3,7 +3,7 @@
 
         <!-- Logo-->
         <div>
-            <a href="index.html" class="logo">
+            <a href="{{ route('dashboard') }}" class="logo">
                 <span class="logo-light">
                         <i class="mdi mdi-camera-control"></i> DATA CARE
                 </span>
