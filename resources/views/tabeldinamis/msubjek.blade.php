@@ -55,8 +55,8 @@
                             <td>{{ $subjek->id }}</td>
                             <td>{{ $subjek->nama_subjek }}</td>
                             <td> 
-                                <button class="btn btn-success" data-toggle="modal" data-target="#tambahSubjekModal">Tambah</button>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSubjekModal">Tambah</button>
+                                <button class="btn btn-success">Edit</button>
                                 <button class="btn btn-danger">Hapus</button>
                             </td>
                         </tr>

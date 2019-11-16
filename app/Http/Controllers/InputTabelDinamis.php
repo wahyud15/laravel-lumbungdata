@@ -79,6 +79,14 @@ class InputTabelDinamis extends Controller
                 ['id' => $turunanIndikator_id , 'tahundata' => $tahundata],
                 ['status_entri' => 1]
             );
+
+            //=============================================
+            //Untuk Keperluan Presentasi Sementara
+            //=============================================
+            Excel::import(new DataTmpl1Import($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
+            //=============================================
+            //Untuk Keperluan Presentasi Sementara
+            //=============================================
         }
 
         if($administrativeLevel == 2)
@@ -88,6 +96,14 @@ class InputTabelDinamis extends Controller
                 ['id' => $turunanIndikator_id , 'tahundata' => $tahundata],
                 ['status_entri' => 1]
             );
+
+            //=============================================
+            //Untuk Keperluan Presentasi Sementara
+            //=============================================
+            Excel::import(new DataTmpl1Import($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
+            //=============================================
+            //Untuk Keperluan Presentasi Sementara
+            //=============================================
         }
         
         //Get Data Parameter

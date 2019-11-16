@@ -150,5 +150,9 @@ class DatabaseSeeder extends Seeder
             ['id' => 8, 'turunanindikator_id' => 1, 'tahun' => '2011', 'nu_karakteristik' => 2, 'nu_baris' => 1, 'nu_periode' => 4],
         ]);
 
+        // $this->call([
+        //     MetadataSeeder::class,
+        // ]);
+
     }
 }
