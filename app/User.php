@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\TurunanInstansi', 'id', 'turunaninstansi_id');
     }
+
+    public function IsSuperAdmin()
+    {
+        return Auth()->user()->level === '20';
+    }
 }

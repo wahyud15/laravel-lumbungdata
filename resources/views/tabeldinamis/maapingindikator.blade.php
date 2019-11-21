@@ -47,6 +47,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Turunan Indikator</th>
+                        <th>Tahun Data</th>
                         <th>Master Indikator</th>
                         <th>Produsen Data</th>
                         <th>Aksi</th>
@@ -59,6 +60,7 @@
                         <tr>
                             <td>{{ $t_indikator->id }}</td>
                             <td>{{ $t_indikator->nama_transaksi_indikator }}</td>
+                            <td>{{ $t_indikator->tahundata }}</td>
                             <td>{{ $t_indikator->Mindikator->nama_indikator }}</td>
                             <td>{{ $t_indikator->User->name }}</td>
                             <td> 

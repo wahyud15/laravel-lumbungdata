@@ -29,9 +29,9 @@
 
                     <div class="card-body">
                         <div class="text-center m-t-0 m-b-15">
-                                <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark.png" alt="" height="24"></a>
+                                <!-- <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark.png" alt="" height="24"></a> -->
                         </div>
-                        <h5 class="font-18 text-center">Sign in to continue</h5>
+                        <h5 class="font-18 text-center">Sign in to RUDATs</h5>
 
                         <form class="form-horizontal m-t-30" action="{{ route('login') }}" method="post">
                             @csrf
@@ -68,10 +68,10 @@
 
                             <div class="form-group row m-t-30 m-b-0">
                                 <div class="col-sm-7">
-                                    <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                                    <!-- <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a> -->
                                 </div>
                                 <div class="col-sm-5 text-right">
-                                    <a href="{{ route('register') }}" class="text-muted">Create an account</a>
+                                    <!-- <a href="{{ route('register') }}" class="text-muted">Create an account</a> -->
                                 </div>
                             </div>
                         </form>

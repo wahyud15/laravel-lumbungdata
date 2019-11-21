@@ -29,7 +29,7 @@
 <div class="page-title-box">
     <div class="row align-items-center">
         <div class="col-sm-6">
-            <h4 class="page-title">Tabel Dinamis - Input Data Tabel</h4>
+            <h4 class="page-title">Galeri Data</h4>
         </div>
     </div>
     <!-- end row -->
@@ -40,7 +40,7 @@
         <div class="card m-b-30">
             <div class="card-body">
 
-                <h4 class="mt-0 header-title">Pilih Indikator</h4><br/>
+                <h4 class="mt-0 header-title">Galeri Data</h4><br/>
 
                 <table id="datatable" class="table table-bordered dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
@@ -48,43 +48,20 @@
                         <th>Id</th>
                         <th>Turunan Indikator</th>
                         <th>Tahun Data</th>
-                        <th>Master Indikator</th>
-                        <th>Status Tayang</th>
-                        <th>Status Entri</th>
                         <th>Aksi</th>
                     </tr>
                     </thead>
 
 
                     <tbody>
-                    @foreach($turunanIndikator as $tindikator)
+                    @foreach($galeridata as $gdata)
                         <tr>
-                            <td>{{ $tindikator->id }}</td>
-                            <td>{{ $tindikator->nama_transaksi_indikator }}</td>
-                            <td>{{ $tindikator->tahundata}}</td>
-                            <td>{{ $tindikator->Mindikator->nama_indikator }}</td>
+                            <td>{{ $gdata->id }}</td>
+                            <td>{{ $gdata->nama_transaksi_indikator }}</td>
+                            <td>{{ $gdata->tahundata}}</td>
                             <td>
-                                @if($tindikator->status_tayang == '0')
-                                <span class="badge badge-pill badge-danger">Turun Tayang</span>
-                                @else
-                                <span class="badge badge-pill badge-success">Tayang</span>
-                                @endif
-                            </td>
-                            <td>
-                                @if($tindikator->status_entri == '0')
-                                <span class="badge badge-pill badge-danger">Belum Entri</span>
-                                @else
-                                <span class="badge badge-pill badge-success">Sudah Entri</span>
-                                @endif
-                            </td>
-                            <td> 
-                                <a href="{{route('tabeldinamis.getDataIndikator', $tindikator->id)}}" class="btn btn-primary" target="_blank">Entri Data</a>
-                                @if($tindikator->status_tayang == '0')
-                                    <a href="{{ route('tabeldinamis.setTayangkan', $tindikator->id) }}" class="btn btn-success my-1" target="_self">Tayangkan</a>
-                                @else
-                                    <a href="{{ route('tabeldinamis.setTurunTayang', $tindikator->id) }}" class="btn btn-danger my-1" target="_self">Turun Tayang</a>
-                                @endif
-                                
+                                <a href="{{ route('galeridata.downloadData', [$gdata->id, $gdata->tahundata, $gdata->madministrativelevel_id]) }}" class="btn btn-primary" target="_blank">Download</a>
+                                <a href="{{ route('galeridata.viewData', [$gdata->id, $gdata->tahundata, $gdata->madministrativelevel_id]) }}" class="btn btn-primary mx-1" target="_blank">View</a>
                             </td>
                         </tr>
                     @endforeach
