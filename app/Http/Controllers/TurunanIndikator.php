@@ -48,7 +48,7 @@ class TurunanIndikator extends Controller
         $produsendata = $request->produsendata;
 
         $isSuccessUpdateOrCreate = Transaksiindikator::updateOrCreate(
-            ['nama_transaksi_indikator' => $namaTurunanIndikator],[
+            ['nama_transaksi_indikator' => $namaTurunanIndikator, 'tahundata' => $tahundata,],[
             'mindikator_id' => $mindikator_id,
             'madministrativelevel_id' => $administrativeLevel,
             'user_id' => $produsendata,
