@@ -28,7 +28,7 @@ class IndikatorAPIController extends Controller
         // }
         $indikator->itemBaris = $rsItemBaris;
 
-        $rsItemKarakteristik = DB::table('mkarakteristikitems')->select('no_urut as id', 'nama_items as nama')
+        $rsItemKarakteristik = DB::table('mkarakteristikitems')->select('no_urut as id', 'nama_items as nama', 'metadata_id as metadata')
             ->where('mkarakteristik_id', $rsIndikator->mkarakteristik_id)->orderBy('no_urut','asc')->get();
         // foreach ($rsItemKarakteristik as $rsKarakteristik) {
         //     $indikator->itemKarakteristik[$rsKarakteristik->no_urut] = $rsKarakteristik->nama_items;
@@ -58,7 +58,7 @@ class IndikatorAPIController extends Controller
     public function indikatorTerakhir(Request $request){
         $indikatorTerakhir = array();
 
-        $rsIndikator = DB::table('mindikator')->orderBy('created_at', 'desc')->limit(7)->get();
+        $rsIndikator = DB::table('mindikator')->orderBy('id', 'desc')->limit(7)->get();
         foreach ($rsIndikator as $latestIndikator) {
             $indikator = new IndikatorAPI();
             $indikator->id = $latestIndikator->id;
@@ -86,4 +86,43 @@ class IndikatorAPIController extends Controller
         } return response()->json($rsHasilCari);
         
     }
+
+    public function semuaSubjek(Request $request) {
+        $rsSemuaSubjek = DB::table('msubjek')->select('id', 'nama_subjek as nama')->get();
+        return response()->json($rsSemuaSubjek);
+    }
+
+    public function tampilkanBySubjek(Request $request, $idSubjek) {
+        $subjek = new Subjek();
+        $subjek->id = $idSubjek;
+
+        $rsSubjek = DB::table('msubjek')->where('id', $idSubjek)->first();
+        $subjek->nama = $rsSubjek->nama_subjek;
+
+        $indikatorTerakhir = array();
+
+        $rsIndikator = DB::table('mindikator')->where('msubjek_id', $idSubjek)->orderBy('created_at', 'desc')->get();
+        foreach ($rsIndikator as $latestIndikator) {
+            $indikator = new IndikatorAPI();
+            $indikator->id = $latestIndikator->id;
+            $indikator->nama = $latestIndikator->nama_indikator;
+
+            array_push($indikatorTerakhir, $indikator);
+        }
+
+        $subjek->lisIndikator = $indikatorTerakhir;
+        return response()->json($subjek);
+    }
+
+    public function lihatMetadata(Request $request, $idMetadata) {
+        $rsMetadata = DB::table('metadata')->where('id', $idMetadata)->first();
+        return response()->json($rsMetadata);
+    }
+}
+
+class Subjek
+{
+    var $id;
+    var $nama;
+    var $lisIndikator = array();
 }

@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
         //Insert User
         DB::table('users')->insert([
             ['name' => 'superadmin', 'email' => 'wahyudi.septiawan@bps.go.id', 'password' => bcrypt('1'), 'level' => '20', 'turunaninstansi_id' => 1],
+            ['name' => 'admin', 'email' => 'admin@bpsntb.id', 'password' => bcrypt('1'), 'level' => '20', 'turunaninstansi_id' => 1],
             ['name' => 'Badan Pusat Statistik Provinsi Nusa Tenggara Barat', 'email' => 'bps_ntb@gmail.com', 'password' => bcrypt('1'), 'level' => '10', 'turunaninstansi_id' => 1],
             ['name' => 'Badan Pusat Statistik Kabupaten Lombok Barat', 'email' => 'bps_lombar@gmail.com', 'password' => bcrypt('1'), 'level' => '10', 'turunaninstansi_id' => 2],
             ['name' => 'Badan Pusat Statistik Kabupaten Lombok Tengah', 'email' => 'bps_lomteng@gmail.com', 'password' => bcrypt('1'), 'level' => '10', 'turunaninstansi_id' => 3],

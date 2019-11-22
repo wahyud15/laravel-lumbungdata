@@ -14,7 +14,7 @@ use App\Mkarakteristikitems;
 use App\Mperiode;
 use App\Mperiodeitems;
 use App\Msatuan;
-use App\Transaksiindikator;
+use App\TransaksiIndikator;
 use App\Imports\DataTmpl2NewImport;
 use App\Imports\DataTmpl1NewImport;
 

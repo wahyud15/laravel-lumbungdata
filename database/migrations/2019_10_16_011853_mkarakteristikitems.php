@@ -18,6 +18,7 @@ class Mkarakteristikitems extends Migration
             $table->integer('no_urut');
             $table->string('nama_items');
             $table->bigInteger('mkarakteristik_id');
+            $table->bigInteger('metadata_id')->unsigned()->nullable();
         });
     }
 
