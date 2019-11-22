@@ -32,6 +32,14 @@ Route::get('/tabeldinamis/msubjek', 'TabelDinamis@showMsubjek')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.msubjek');
 
+Route::get('/tabeldinamis/getSubjekForEdit', 'TabelDinamis@getSubjekForEdit')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.getSubjekForEdit');
+
+Route::post('/tabeldinamis/editSubjek', 'TabelDinamis@editSubjek')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.editSubjek');
+
 Route::get('/tabeldinamis/mindikator', 'TabelDinamis@showMindikator')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.mindikator');

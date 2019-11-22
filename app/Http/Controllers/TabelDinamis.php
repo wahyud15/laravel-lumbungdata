@@ -26,6 +26,11 @@ class TabelDinamis extends Controller
         return view('tabeldinamis.msubjek', ['msubjek' => $msubjek]);
     }
 
+    public function getSubjekForEdit()
+    {
+        
+    }
+
     public function showMindikator()
     {
         $msubjek = Msubjek::all();
