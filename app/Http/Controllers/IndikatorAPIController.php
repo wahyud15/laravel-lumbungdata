@@ -58,7 +58,7 @@ class IndikatorAPIController extends Controller
     public function indikatorTerakhir(Request $request){
         $indikatorTerakhir = array();
 
-        $rsIndikator = DB::table('mindikator')->orderBy('created_at', 'desc')->limit(7)->get();
+        $rsIndikator = DB::table('mindikator')->orderBy('id', 'desc')->limit(7)->get();
         foreach ($rsIndikator as $latestIndikator) {
             $indikator = new IndikatorAPI();
             $indikator->id = $latestIndikator->id;
