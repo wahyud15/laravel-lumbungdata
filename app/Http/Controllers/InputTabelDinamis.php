@@ -57,7 +57,7 @@ class InputTabelDinamis extends Controller
     {
         $isSuccessTurunTayang = Transaksiindikator::updateOrCreate(
             ['id' => $turunanIndikator_id],
-            ['status_tayang' => 1]
+            ['status_tayang' => 0]
         );
 
         return redirect()->route('tabeldinamis.inputtabeldinamis');
@@ -65,6 +65,7 @@ class InputTabelDinamis extends Controller
 
     public function uploadDataIndikator(Request $request)
     {
+        //dd($request->all());
         // $id_indikator = $request->uploaddataidindikator;
         $turunanIndikator_id = $request->uploaddataturunanindikator_id;
         $tahundata = $request->uploaddatatahun;
@@ -83,7 +84,7 @@ class InputTabelDinamis extends Controller
             //=============================================
             //Untuk Keperluan Presentasi Sementara
             //=============================================
-            Excel::import(new DataTmpl1Import($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
+            //Excel::import(new DataTmpl1Import($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
             //=============================================
             //Untuk Keperluan Presentasi Sementara
             //=============================================
@@ -100,7 +101,7 @@ class InputTabelDinamis extends Controller
             //=============================================
             //Untuk Keperluan Presentasi Sementara
             //=============================================
-            Excel::import(new DataTmpl1Import($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
+            //Excel::import(new DataTmpl1Import($turunanIndikator_id , $tahundata), request()->file('uploaddatafile'));
             //=============================================
             //Untuk Keperluan Presentasi Sementara
             //=============================================

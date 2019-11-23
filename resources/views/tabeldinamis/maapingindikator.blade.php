@@ -21,6 +21,24 @@
 
 <!-- Input Tabel Dinamis -->
 <!-- <script src="{{ asset('js/tabeldinamis/inputtabeldinamis.js') }}"></script>   -->
+<script>
+    $('#hapusMappingIndikatorModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var tid = button.data('tid')
+        var mindikator = button.data('mindikator')
+        var tindikator = button.data('tindikator')
+        var tahundata = button.data('tahundata')
+        var leveladminis = button.data('leveladminis')
+        
+        
+        var modal = $(this)
+        modal.find('.modal-body #trx_id').val(tid)
+        modal.find('.modal-body #master_indikator').val(mindikator)
+        modal.find('.modal-body #turunan_indikator').val(tindikator)
+        modal.find('.modal-body #tahun_data').val(tahundata)
+        modal.find('.modal-body #level_administrasi').val(leveladminis)
+    });
+</script>
 @stop
 
 @extends('layouts.horizontal')
@@ -34,7 +52,13 @@
     </div>
     <!-- end row -->
 </div>
-
+@if (Session::has('message'))
+<div class="row">   
+    <div class="col-12"> 
+        <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">{{ Session::get('message') }}</div>
+    </div>
+</div>
+@endif
 <div class="row">
     <div class="col-12">
         <div class="card m-b-30">
@@ -64,7 +88,8 @@
                             <td>{{ $t_indikator->Mindikator->nama_indikator }}</td>
                             <td>{{ $t_indikator->User->name }}</td>
                             <td> 
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahMappingIndikatorModal">Tambah</button>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahMappingIndikatorModal">Tambah</button>
+                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusMappingIndikatorModal" data-tid="{{ $t_indikator->id }}" data-mindikator="{{ $t_indikator->Mindikator->nama_indikator }}" data-tindikator="{{ $t_indikator->nama_transaksi_indikator }}" data-leveladminis="{{$t_indikator->madministrativelevel_id}}" data-tahundata="{{ $t_indikator->tahundata }}">Hapus</button>
                             </td>
                         </tr>
                     @endforeach
@@ -150,5 +175,51 @@
     </div>
   </div>
 </div>
-
+<!---hapus mapping-->
+<div id="hapusMappingIndikatorModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hapusMappingIndikatorModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title mt-0">Hapus Mapping Tabel</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('tabeldinamis.hapusmappingIndikator')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="trx_id" id="trx_id" value="" />
+                        <input type="hidden" name="level_administrasi" id="level_administrasi" value="" />
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">Master Indikator</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" value="" id="master_indikator" name="master_indikator" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Turunan Indikator</label>
+                            <div class="col-sm-10">
+                                <textarea name="turunan_indikator" id="turunan_indikator" rows="3" class="form-control" readonly></textarea>
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-2 col-form-label">Tahun Data</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="" id="tahun_data" name="tahun_data" readonly>
+                            </div>
+                        </div>
+                    <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-10 col-form-label"><em>*) Data yang sudah dihapus tidak bisa dikembalikan</em>
+                            </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Hapus Data</button>
+                </div>
+                
+            </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @endsection
