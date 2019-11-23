@@ -83,6 +83,10 @@ Route::post('/tabeldinamis/addPeriode', 'TabelDinamis@addPeriode')
 Route::post('/tabeldinamis/addSatuan', 'TabelDinamis@addSatuan')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addSatuan');
+//tambah view item karakteristik
+Route::get('/tabeldinamis/itemkarakteristik/{id}', 'TabelDinamis@showItemsKarakteristik')
+        ->name('tabeldinamis.itemkarakteristik');
+//end tambah
 
 //=======================================
 //End Tabel Dinamis - Kelola Master Tabel
