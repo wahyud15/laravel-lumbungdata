@@ -34,5 +34,9 @@ class Mindikator extends Model
     {
         return $this->hasOne('App\Msubjek', 'id', 'msubjek_id');
     }
+    public function TransaksiIndikator()
+    {
+        return $this->belongsTo('App\TransaksiIndikator','id','mindikator_id');
+    }
 
 }
