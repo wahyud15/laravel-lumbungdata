@@ -8,7 +8,7 @@
         <title>RUDATs - LOGIN</title>
         <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
         <meta content="Themesdesign" name="author" />
-        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('horizon/images/icon_rudats134.ico')}}">
 
         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
@@ -22,14 +22,14 @@
         <!-- Begin page -->
         <div class="accountbg"></div>
         <div class="home-btn d-none d-sm-block">
-                <a href="{{url('horizontal')}}" class="text-white"><i class="fas fa-home h2"></i></a>
+                <a href="{{route('galeridata.showGaleriData')}}" class="text-white"><i class="fas fa-home h2"></i></a>
             </div>
         <div class="wrapper-page">
                 <div class="card card-pages shadow-none">
 
                     <div class="card-body">
                         <div class="text-center m-t-0 m-b-15">
-                                <!-- <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark.png" alt="" height="24"></a> -->
+                                <a href="#" class="logo logo-admin"><img src="{{asset('horizon/images/icon_rudats134.png')}}" alt=""></a>
                         </div>
                         <h5 class="font-18 text-center">Sign in to RUDATs</h5>
 

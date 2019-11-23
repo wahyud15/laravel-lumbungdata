@@ -235,5 +235,35 @@ class TabelDinamis extends Controller
 
         return redirect()->route('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
     }
+    //show item karakteristik
+    public function showItemsKarakteristik($id)
+    {
+        $count = Mkarakteristikitems::where('mkarakteristik_id','=',$id)->count();
+        $arr = array('hasil' => 'Data tidak tersedia', 'status' => false);
+        if ($count>0) {
+            //items ada
+            $dataItemKarakteristik = Mkarakteristikitems::where('mkarakteristik_id','=',$id)->get();
+            $i=1;
+            $arrItem = array();
+            foreach ($dataItemKarakteristik as $item) {
+                $arrItem[] = array(
+                    'urutan' => $i,
+                    'id' => $item->id,
+                    'no_urut' => $item->no_urut,
+                    'nama_items' => $item->nama_items,
+                    'mkarakteristik_id' => $item->mkarakteristik_id,
+                    'metadata_id' => $item->metadata_id,
+                    'nama_karakteristik' => $item->Mkarakteristik->nama_karakteristik
+                );
+                $i++;
+            }
+            $arr = array(
+                'jumlah_item' => $i-1,
+                'hasil' => $arrItem, 
+                'status' => true
+            );
+        }
+        return Response()->json($arr);
+    }
 
 }

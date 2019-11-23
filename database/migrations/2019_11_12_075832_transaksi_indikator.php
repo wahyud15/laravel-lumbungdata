@@ -19,7 +19,7 @@ class TransaksiIndikator extends Migration
             $table->bigInteger('mindikator_id');
             $table->bigInteger('madministrativelevel_id');
             $table->bigInteger('user_id');
-            $table->bigInteger('tahundata')->default(0000);
+            $table->year('tahundata')->nullable();
             $table->string('status_entri')->default('0');
             $table->string('status_tayang')->default('0');
             $table->timestamps();

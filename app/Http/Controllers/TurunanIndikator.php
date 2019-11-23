@@ -19,6 +19,7 @@ use App\AdministrativeLevel;
 use App\Mtahundata;
 use App\DataTmpl2New;
 use App\DataTmpl1New;
+use Session;
 
 class TurunanIndikator extends Controller
 {
@@ -38,7 +39,37 @@ class TurunanIndikator extends Controller
             'tahun' => $tahun,
             ]);
     }
+    public function hapusmappingIndikator(Request $request)
+    {
+        //dd($request->all());
+        //hapus ditabel transaksiindikator 
+        //sesuai madministrativelevel_id
+        //hapus ditabel sesuai level administrasi
+        $dataIndikator = Transaksiindikator::where('id', '=', $request->trx_id)->count();
+        if ($dataIndikator > 0) {
+            
+            $dataIndikator = Transaksiindikator::where('id', '=', $request->trx_id)->delete();
 
+            if ($request->level_administrasi==1) {
+                //tabel 1
+                $dataLevelAdminis = DataTmpl1New::where('turunanindikator_id','=',$request->trx_id)->delete();
+            } 
+            else {
+                //tabel 2
+                $dataLevelAdminis = DataTmpl2New::where('turunanindikator_id','=',$request->trx_id)->delete();
+            }
+
+            $pesan_error = "Mapping tabel berhasil di hapus";
+            $warna_error = "primary";
+        } else {
+            //data tidak ada
+            $pesan_error = "data tidak ada";
+            $warna_error = "danger";
+        }
+        Session::flash('message', $pesan_error);
+        Session::flash('message_type', $warna_error);
+        return redirect()->route('tabeldinamis.showMappingIndikator');
+    }
     public function mappingIndikator(Request $request)
     {
         $namaTurunanIndikator = $request->tambahMappingIndikatorNamaTurunanIndikator;

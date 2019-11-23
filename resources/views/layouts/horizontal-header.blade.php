@@ -3,9 +3,10 @@
 
         <!-- Logo-->
         <div>
-            <a href="#" class="logo">
+            <a href="{{ route('dashboard') }}" class="logo">
                 <span class="logo-light">
-                        <i class="mdi mdi-camera-control"></i> RUDATs
+                        <img src="{{asset('horizon/images/icon_rudats134.png')}}" height="60px" />
+                        RUDATs
                 </span>
             </a>
         </div>

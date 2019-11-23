@@ -15,13 +15,17 @@ Route::get('/', function () {
         Auth::logout();
         return view('login');
 });
-
+/*
+Route::get('/', function () {
+        // Only authenticated users may enter...
+        return view('auth.login');
+    })->middleware('auth'); */
 
 Route::get('/horizontal', 'Dashboard@showDashboard')
         ->middleware('auth')
         ->name('dashboard');
 
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 
@@ -83,6 +87,10 @@ Route::post('/tabeldinamis/addPeriode', 'TabelDinamis@addPeriode')
 Route::post('/tabeldinamis/addSatuan', 'TabelDinamis@addSatuan')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.addSatuan');
+//tambah view item karakteristik
+Route::get('/tabeldinamis/itemkarakteristik/{id}', 'TabelDinamis@showItemsKarakteristik')
+        ->name('tabeldinamis.itemkarakteristik');
+//end tambah
 
 //=======================================
 //End Tabel Dinamis - Kelola Master Tabel
@@ -99,6 +107,9 @@ Route::post('/tabeldinamis/mappingindikator', 'TurunanIndikator@mappingIndikator
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.mappingIndikator');
 
+Route::post('/tabeldinamis/hapusmappingindikator', 'TurunanIndikator@hapusmappingIndikator')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.hapusmappingIndikator');
 //=======================================
 //End Tabel Dinamis - Mapping Tabel Dinamis
 //=======================================
