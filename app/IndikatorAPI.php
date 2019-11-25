@@ -9,6 +9,7 @@ class IndikatorAPI
     var $deskripsi;
     var $keterangan;
     var $satuan;
+    var $level_administrasi;
     var $itemBaris = array();
     var $itemKarakteristik = array();
     var $itemWaktu = array();

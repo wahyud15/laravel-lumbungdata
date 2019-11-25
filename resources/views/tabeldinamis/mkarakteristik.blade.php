@@ -8,6 +8,7 @@
 @stop
 
 @section('js')
+@include('tabeldinamis.jsKarakteristik')
 <!-- Required datatable js -->
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
@@ -18,6 +19,7 @@
 
 <!-- Datatable init js -->
 <script src="{{ asset('assets/pages/datatables.init.js') }}"></script>  
+
 @stop
 
 @extends('layouts.horizontal')
@@ -58,6 +60,7 @@
                                 <button class="btn btn-success" data-toggle="modal" data-target="#tambahKarakteristikModal">Tambah</button>
                                 <button class="btn btn-primary">Edit</button>
                                 <button class="btn btn-danger">Hapus</button>
+                                <!--<a href="" class="btn btn-info" data-toggle="modal" data-target="#itemKaViewModal" data-mkarid="{{ $karakteristik->id }}">View</a>-->
                             </td>
                         </tr>
                     @endforeach
@@ -160,4 +163,37 @@ function kurangi_form(){
     target.removeChild(akhir);
 }
 </script>
+<!--modal view-->
+<div id="itemKaViewModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="itemKaViewModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myModalLabel">Items Karakteristik</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table" id="tabelitemkar">
+                        <thead>
+                            <tr>
+                                <th width="7%">#</th>
+                                <th>Nama Karakteristik</th>
+                                <th>Items</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--batas modal view-->
 @endsection

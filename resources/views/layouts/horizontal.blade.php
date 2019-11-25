@@ -8,7 +8,7 @@
     <title>RUDATs - BPS PROVINSI NTB</title>
     <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
     <meta content="Themesdesign" name="author" />
-    <link rel="shortcut icon" href="{{asset('horizon/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('horizon/images/icon_rudats134.ico')}}">
     @section('css')
 
     @show

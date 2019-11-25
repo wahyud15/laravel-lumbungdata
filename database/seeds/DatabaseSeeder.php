@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
         //Insert User
         DB::table('users')->insert([
             ['name' => 'superadmin', 'email' => 'wahyudi.septiawan@bps.go.id', 'password' => bcrypt('1'), 'level' => '20', 'turunaninstansi_id' => 1],
+            ['name' => 'admin', 'email' => 'admin@bpsntb.id', 'password' => bcrypt('1'), 'level' => '20', 'turunaninstansi_id' => 1],
             ['name' => 'Badan Pusat Statistik Provinsi Nusa Tenggara Barat', 'email' => 'bps_ntb@gmail.com', 'password' => bcrypt('1'), 'level' => '10', 'turunaninstansi_id' => 1],
             ['name' => 'Badan Pusat Statistik Kabupaten Lombok Barat', 'email' => 'bps_lombar@gmail.com', 'password' => bcrypt('1'), 'level' => '10', 'turunaninstansi_id' => 2],
             ['name' => 'Badan Pusat Statistik Kabupaten Lombok Tengah', 'email' => 'bps_lomteng@gmail.com', 'password' => bcrypt('1'), 'level' => '10', 'turunaninstansi_id' => 3],
@@ -61,9 +62,15 @@ class DatabaseSeeder extends Seeder
 
         //Insert Msubjek
         DB::table('msubjek')->insert([
-            ['id' => 1, 'nama_subjek' => 'Sosial Kependudukan'],
-            ['id' => 2, 'nama_subjek' => 'Pertanian Kehutanan'],
-            ['id' => 3, 'nama_subjek' => 'Ekonomi Perdagangan'],
+            ['id' => 1, 'nama_subjek' => 'Administrasi Pemerintahan'],
+            ['id' => 2, 'nama_subjek' => 'Penduduk & Tenaga Kerja'],
+            ['id' => 3, 'nama_subjek' => 'Pendidikan'],
+            ['id' => 4, 'nama_subjek' => 'Kesehatan'],
+            ['id' => 5, 'nama_subjek' => 'Sosial Masyarakat'],
+            ['id' => 6, 'nama_subjek' => 'Pertanian'],
+            ['id' => 7, 'nama_subjek' => 'Industri & Perdagangan'],
+            ['id' => 8, 'nama_subjek' => 'Pariwisata & Transportasi'],
+            ['id' => 9, 'nama_subjek' => 'Keuangan & Ekonomi'],
         ]);
 
         //Insert Satuan
