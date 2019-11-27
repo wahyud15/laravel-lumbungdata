@@ -15,6 +15,7 @@
 <!-- Responsive examples -->
 <script src="{{ asset('plugins/datatables/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.buttons.min.js') }}"></script>
 
 <!-- Datatable init js -->
 <script src="{{ asset('assets/pages/datatables.init.js') }}"></script>  
