@@ -56,9 +56,9 @@
                             <td>{{ $subjek->id }}</td>
                             <td>{{ $subjek->nama_subjek }}</td>
                             <td> 
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSubjekModal">Tambah</button>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#editSubjekForEditModal">Edit</button>
-                                <button class="btn btn-danger">Hapus</button>
+                                <button class="btn btn-primary">Tambah</button>
+                                <a class="btn btn-success" href="{{route('tabeldinamis.getSubjekForEdit', $subjek->id)}}" >Edit</a>
+                                <a class="btn btn-danger" href="{{route('tabeldinamis.hapusSubjek', $subjek->id)}}">Hapus</a>
                             </td>
                         </tr>
                     @endforeach

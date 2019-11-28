@@ -60,7 +60,7 @@
                             <td> 
                                 <button class="btn btn-success" data-toggle="modal" data-target="#tambahKarakteristikModal">Tambah</button>
                                 <a class="btn btn-primary" href="{{route('tabeldinamis.getKarakteristikForEdit', $karakteristik->id)}}">Edit</a>
-                                <button class="btn btn-danger">Hapus</button>
+                                <a class="btn btn-danger" href="{{route('tabeldinamis.hapusKarakteristik', $karakteristik->id)}}">Hapus</a>
                                 <!--<a href="" class="btn btn-info" data-toggle="modal" data-target="#itemKaViewModal" data-mkarid="{{ $karakteristik->id }}">View</a>-->
                             </td>
                         </tr>

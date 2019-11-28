@@ -26,9 +26,10 @@ class TabelDinamis extends Controller
         return view('tabeldinamis.msubjek', ['msubjek' => $msubjek]);
     }
 
-    public function getSubjekForEdit()
+    public function getSubjekForEdit($id)
     {
-        
+        $subjek = Msubjek::find($id);
+        return view('tabeldinamis.msubjek_edit', ['subjek' => $subjek]);
     }
 
     public function showMindikator()
@@ -139,6 +140,12 @@ class TabelDinamis extends Controller
         return view('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
     }
 
+    public function getSatuanForEdit($id)
+    {
+        $satuan = Msatuan::find($id);
+        return view('tabeldinamis.msatuan_edit', ['satuan' => $satuan]);
+    }
+
     public function addSubjek(Request $request)
     {
         $nama_subjek = $request->tambahSubjekNamaSubjek;
@@ -162,6 +169,12 @@ class TabelDinamis extends Controller
             ['nama_subjek' => $msubjek_nama_subjek]
         );
 
+        return redirect()->route('tabeldinamis.msubjek');
+    }
+
+    public function hapusSubjek($id)
+    {
+        Msubjek::where('id', $id)->delete();
         return redirect()->route('tabeldinamis.msubjek');
     }
 
@@ -292,6 +305,15 @@ class TabelDinamis extends Controller
         return view('tabeldinamis.mkarakteristik', ['mkarakteristik' => $mkarakteristik]);
     }
 
+    public function hapusKarakteristik($id)
+    {
+        Mkarakteristik::where('id', $id)->delete();
+        Mkarakteristikitems::where('id', $id)->delete();
+
+        $mkarakteristik = Mkarakteristik::all();
+        return view('tabeldinamis.mkarakteristik', ['mkarakteristik' => $mkarakteristik]);
+    }
+
     public function editItemsKarakteristik(Request $request)
     {
         $edit_id_karakteristik = $request->editKarakteristikIDKarakteristik;
@@ -351,6 +373,15 @@ class TabelDinamis extends Controller
             [
                 'nama_baris' => $edit_items_baris
             ]);
+
+        $mbaris = Mbaris::all();
+        return view('tabeldinamis.mbaris', ['mbaris' => $mbaris]);
+    }
+
+    public function hapusBaris($id)
+    {
+        Mbaris::where('id', $id)->delete();
+        Mbarisitems::where('mbaris_id', $id)->delete();
 
         $mbaris = Mbaris::all();
         return view('tabeldinamis.mbaris', ['mbaris' => $mbaris]);
@@ -420,6 +451,15 @@ class TabelDinamis extends Controller
         return view('tabeldinamis.mperiode', ['mperiode' => $mperiode]);
     }
 
+    public function hapusPeriode($id)
+    {
+        Mperiode::where('id',$id)->delete();
+        Mperiodeitems::where('mperiode_id', $id)->delete();
+
+        $mperiode = Mperiode::all();
+        return view('tabeldinamis.mperiode', ['mperiode' => $mperiode]);
+    }
+
     public function editItemsPeriode(Request $request)
     {
         $edit_id_periode = $request->editPeriodeIDPeriode;
@@ -457,6 +497,25 @@ class TabelDinamis extends Controller
         // return view('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
 
         return redirect()->route('tabeldinamis.msatuan', ['msatuan' => $msatuan]);
+    }
+
+    public function editSatuan(Request $request)
+    {
+        $msatuan_id = $request->msatuan_id;
+        $msatuan_nama_satuan = $request->msatuan_nama_satuan;
+
+        Msatuan::updateOrCreate(
+            ['id' => $msatuan_id],
+            ['nama_satuan' => $msatuan_nama_satuan]
+        );
+
+        return redirect()->route('tabeldinamis.msatuan');
+    }
+
+    public function hapusSatuan($id)
+    {
+        Msatuan::where('id', $id)->delete();
+        return redirect()->route('tabeldinamis.msatuan');
     }
 
     //show item karakteristik

@@ -32,17 +32,24 @@ Auth::routes();
 //=======================================
 //Tabel Dinamis - Kelola Master Tabel
 //=======================================
+
+//Subjek
 Route::get('/tabeldinamis/msubjek', 'TabelDinamis@showMsubjek')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.msubjek');
 
-Route::get('/tabeldinamis/getSubjekForEdit', 'TabelDinamis@getSubjekForEdit')
+Route::get('/tabeldinamis/getSubjekForEdit/{id}', 'TabelDinamis@getSubjekForEdit')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.getSubjekForEdit');
 
 Route::post('/tabeldinamis/editSubjek', 'TabelDinamis@editSubjek')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.editSubjek');
+
+Route::get('/tabeldinamis/hapusSubjek/{id}', 'TabelDinamis@hapusSubjek')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.hapusSubjek');
+//End Subjek
 
 //Indikator
 Route::get('/tabeldinamis/mindikator', 'TabelDinamis@showMindikator')
@@ -78,7 +85,10 @@ Route::post('/tabeldinamis/editKarakteristik', 'TabelDinamis@editKarakteristik')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.editKarakteristik');
 
-
+Route::get('/tabeldinamis/hapusKarakteristik/{id}', 'TabelDinamis@hapusKarakteristik')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.hapusKarakteristik');
+//End Karakteristik
 
 //Baris
 Route::get('/tabeldinamis/mbaris', 'TabelDinamis@showMbaris')
@@ -100,6 +110,11 @@ Route::post('/tabeldinamis/editItemsBaris', 'TabelDinamis@editItemsBaris')
 Route::post('/tabeldinamis/editBaris', 'TabelDinamis@editBaris')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.editBaris');
+
+Route::get('/tabeldinamis/hapusBaris/{id}', 'TabelDinamis@hapusBaris')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.hapusBaris');
+//End Baris
 
 
 //Periode
@@ -123,10 +138,28 @@ Route::post('/tabeldinamis/editPeriode', 'TabelDinamis@editPeriode')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.editPeriode');
 
+Route::get('/tabeldinamis/hapusPeriode/{id}', 'TabelDinamis@hapusPeriode')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.hapusPeriode');
+//End Periode
+
 //Satuan
 Route::get('/tabeldinamis/msatuan', 'TabelDinamis@showMsatuan')
         ->middleware('isSuperAdmin')
         ->name('tabeldinamis.msatuan');
+
+Route::get('/tabeldinamis/getSatuanForEdit/{id}', 'TabelDinamis@getSatuanForEdit')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.getSatuanForEdit');
+
+Route::post('/tabeldinamis/editSatuan', 'TabelDinamis@editSatuan')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.editSatuan');
+
+Route::get('/tabeldinamis/hapusSatuan/{id}', 'TabelDinamis@hapusSatuan')
+        ->middleware('isSuperAdmin')
+        ->name('tabeldinamis.hapusSatuan');
+//End Satuan
 
 Route::post('/tabeldinamis/addIndikator', 'TabelDinamis@addIndikator')
         ->middleware('isSuperAdmin')

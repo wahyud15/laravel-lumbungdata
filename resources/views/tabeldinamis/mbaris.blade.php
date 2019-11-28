@@ -58,7 +58,7 @@
                             <td> 
                                 <button class="btn btn-success" data-toggle="modal" data-target="#tambahBarisModal">Tambah</button>
                                 <a class="btn btn-primary" href="{{route('tabeldinamis.getBarisForEdit', $baris->id)}}">Edit</a>
-                                <button class="btn btn-danger">Hapus</button>
+                                <a class="btn btn-danger" href="{{route('tabeldinamis.hapusBaris', $baris->id)}}">Hapus</a>
                             </td>
                         </tr>
                     @endforeach
